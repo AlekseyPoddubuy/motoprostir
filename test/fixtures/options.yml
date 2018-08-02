@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  optable_type: MyString
+  optable_id: 1
+  name: MyString
+  value: 1
+
+two:
+  optable_type: MyString
+  optable_id: 1
+  name: MyString
+  value: 1

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<%= yield :head %>
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
+	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>   
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+	<script>
+		tinymce.init({ selector:'textarea#post_description, textarea#item_description, textarea#item_body' ,
+			toolbar: 'fontsizeselect',
+			fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+			plugins: "codesample image",
+
+		});
+	</script>
+</head>
+
+<body>
+	<%= render 'components/top' %>
+	<%= render 'components/header' %>
+
+	<%= yield %>
+	<% if current_page? root_path  %>
+	<% else %>
+	<%= render 'components/footer' %>
+	<% end %>
+	<script>
+		$(document).ready(function(){
+			setTimeout(function(){
+				$('#notice_wrapper').fadeOut("slow", function(){
+					$(this).remove();
+				})
+			}, 3500);
+		});
+	</script>
+</body>
+</html>

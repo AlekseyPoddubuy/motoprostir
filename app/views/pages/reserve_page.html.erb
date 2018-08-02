@@ -1,0 +1,47 @@
+<!-- SUBSRIBER FORM FROM INDEX PAGE -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="newseller">
+				<div class="row">
+					<div class="col-lg-4">
+
+					</div>
+					<div class="col-lg-8">
+						<p class="look"><i class="fa fa-envelope" aria-hidden="true"></i> Слідкуйте за нашими новинами!</p>
+						<p class="collect">Підпишіться на розсилку новин. І ви першими дізнаєтеся про новинки, огляди, поради та подорожі.</p>
+						<p>Ніякого спаму, тільки корисна інформація про мотоподорожі та акссесуари.</p>
+						<div class="news-form">
+							<%= form_for @subscriber do |f| %>
+							<%= f.text_field :letter, required: true, placeholder: 'Введіть ваш e-mail' %>
+							<%= f.submit 'Хочу отримувати новини', class: "btn btn-primary"  %>
+							<% end %>	
+						</div>
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Categoriation for post's -->
+   <div class="col-lg-3">
+      <div class="left-sidebar">
+        <p>Категорії товарів:</p>
+        <ul>
+          <% @sections.each do |section| %>
+          <% if current_page?(section_path(section)) %>
+          <li class="active-c">
+            <%= link_to section.title, section %>
+            <% else %>
+            <li>
+              <%= link_to section.title, section %>
+            </li>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>

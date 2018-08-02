@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  slug: MyString
+  metatitle: MyString
+  metadescription: MyString
+  metakeywords: MyString
+  price: 1
+  publish: 1
+  quantity: 1
+
+two:
+  title: MyString
+  description: MyText
+  slug: MyString
+  metatitle: MyString
+  metadescription: MyString
+  metakeywords: MyString
+  price: 1
+  publish: 1
+  quantity: 1

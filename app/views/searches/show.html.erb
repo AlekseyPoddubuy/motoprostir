@@ -1,0 +1,43 @@
+
+<div class="vacancies-block">
+  <% if @search.search_items.empty? %>
+  <div class="container">
+    <div class="trigger-center">
+      <h1>
+        По вашому запиту вакансій не знайдено      
+      </h1>
+      <div class="comeback">
+        <%= link_to 'Повернутися до пошуку', items_path, class: 'btn btn-warning' %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="trigger-center">
+          <h1>Результати пошуку:</h1>
+        </div>
+        <table class="table table-striped" id="vacancy-list">
+          <thead>
+            <tr>
+              <th>Назва товару</th>
+              <th>Розділ</th>
+              <th>Детальніше</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @search.search_items.each do |item| %>
+            <tr>
+            <td><%= link_to truncate(item.title, length: 60), item %></td>
+              <td><%= link_to item.category.title, item.category %></td>
+              <td><%= link_to 'Переглянути', item %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

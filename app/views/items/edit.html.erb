@@ -1,0 +1,9 @@
+<div class="trigger-center">
+	<h1>Редагування товару</h1>
+	<p><%= link_to 'До товару', @item %> |
+		<%= link_to 'Повернутись', items_path %>
+	</p>
+</div>
+<%= render 'form', item: @item %>
+<%= link_to 'До товару', @item %> |
+<%= link_to 'Повернутись', items_path %>

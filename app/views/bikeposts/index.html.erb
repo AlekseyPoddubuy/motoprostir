@@ -1,0 +1,232 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="trigger-center">
+        <h1>Байк пости України</h1>
+        <p>Суть цього розділу полягає в тому, щоб зібрати базу точок для ночівлі мотоциклістам. Всі дані залишені вами будуть проходити премодерацію. Тому якщо ви маєте змогу допогти мотоциклісту з ночівлею, або знаєте місця, де можна переночувати за символічну плату.. Велкам! :)</p>
+        <p>
+          <%= link_to 'Додати свій байк-пост', new_bikepost_path, class: 'btn btn-primary' %>
+        </p>
+      </div>
+      <h4>Як має працювати цей розділ:</h4>
+      <p>Обираєш область на карті або використовуєш форму пошуку:</p>
+    </div>
+    <div class="col-lg-6">
+      <%= image_tag 'map/map-ukraine.png' %>
+    </div>
+    <div class="col-lg-6">
+      <p>
+      Отримуєш перелік місць які готові прийняти подорожуючого мотоцикліста.
+      </p>
+      <p>Всі 'байкпости' додаються тільки відвідувачими сайту, ми тільки проводимо премодерацію, і віддаємо в відкритий доступ. </p>
+      <p>Якшо даний 'байк-пост' або цікаве місце для відпочинку вже є неактуальним, під кожним є форма зворотнього зв'язку, тому будь-ласка дайте знати, якшо наша інформація не відповідає дійсності. Дякуємо, і всіх гарного асфальту... А не те що сейчас..</p>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div class="wrap">
+  <div class="wrapper">
+    <div class="map-tabs">
+      <div class="clearfix">
+        <ul class="map-tab-ul">
+
+        </ul>
+      </div>
+      <div id="tabs-1" class="open-tabs">
+        <div class="map-ukraine" data-href="/cities/city_id"> 
+
+          <%# javascript_include_tag "map_data" %>
+
+
+          <div class="rh region1"></div>
+          <div class="rh region2"></div>
+          <div class="rh region3"></div>
+          <div class="rh region4"></div>
+          <div class="rh region5"></div>
+          <div class="rh region6"></div>
+          <div class="rh region7"></div>
+          <div class="rh region8"></div>
+          <div class="rh region9"></div>
+          <div class="rh region10"></div>
+          <div class="rh region11"></div>
+          <div class="rh region12"></div>
+          <div class="rh region13"></div>
+          <div class="rh region14"></div>
+          <div class="rh region15"></div>
+          <div class="rh region16"></div>
+          <div class="rh region17"></div>
+          <div class="rh region18"></div>
+          <div class="rh region19"></div>
+          <div class="rh region20"></div>
+          <div class="rh region21"></div>
+          <div class="rh region22"></div>
+          <div class="rh region23"></div>
+          <div class="rh region24"></div>
+          <div class="rh region25"></div>
+          <%= image_tag "map/map-ukraine-overlay.png", class: 'map-ukraine-overlay', alt: '', usemap: '#map-ukraine1' %>
+
+          <map id="map-ukraine1" name="map-ukraine1">
+          </map>
+          <%= link_to "Черкасская", 'contacts/cherkassy-region#city', class: 'rl rgn_lnk1', id: 'Cherkassy', rel: 'Cherkassy' %>
+
+          <%= link_to "Черниговская", 'contacts/chernigov-region#city', class: 'rl rgn_lnk2', id: 'Chernigov', rel: 'Chernigov' %>
+
+          <%= link_to "Симферополь", 'contacts/cherkassy-region#city', class: 'rl rgn_lnk4', id: 'Simferopol', rel: 'Simferopol' %>
+
+          <%= link_to "Днепропетровская", 'contacts/dnepropetrovsk-region#city', class: 'rl rgn_lnk5', id: 'Dnepropetrovsk', rel: 'Dnepropetrovsk' %>
+
+          <%= link_to "Донецкая", 'contacts/donetsk-region#city', class: 'rl rgn_lnk6', id: 'Donetsk', rel: 'Donetsk' %>
+
+          <%= link_to "Харьковская", 'contacts/harkov-region#city', class: 'rl rgn_lnk8', id: 'Harkov', rel: 'Harkov' %>
+
+          <%= link_to "Херсонская", 'contacts/kherson-region#city', class: 'rl rgn_lnk9', id: 'Kherson', rel: 'Kherson' %>
+
+          <%= link_to "Хмельницкая", 'contacts/khmelnitskiy-region#city', class: 'rl rgn_lnk10', id: 'Khmelnitskiy', rel: 'Khmelnitskiy' %>
+
+          <%= link_to "Киевская", 'contacts/kiev-region#city', class: 'rl rgn_lnk11', id: 'Kiev', rel: 'Kiev' %>
+
+          <%= link_to "Кировоградская", 'contacts/kirovograd-region#city', class: 'rl rgn_lnk12', id: 'Kirovograd', rel: 'Kirovograd' %>
+
+          <%= link_to "Луганская", 'contacts/lugansk-region#city', class: 'rl rgn_lnk13', id: 'Lugansk', rel: 'Lugansk' %>
+
+          <%= link_to "Волынская", 'contacts/lutsk-region#city', class: 'rl rgn_lnk14', id: 'Lutsk', rel: 'Lutsk' %>
+
+          <%= link_to "Львовская", 'contacts/lvov-region#city', class: 'rl rgn_lnk15', id: 'Lvov', rel: 'Lvov' %>
+
+          <%= link_to "Николаевская", 'contacts/nikolaev-region#city', class: 'rl rgn_lnk16', id: 'Nikolaev', rel: 'Nikolaev' %>
+
+          <%= link_to "Одесская", 'contacts/odessa-region#city', class: 'rl rgn_lnk17', id: 'Odessa', rel: 'Odessa' %>
+
+          <%= link_to "Полтавская", 'contacts/poltava-region#city', class: 'rl rgn_lnk18', id: 'Poltava', rel: 'Poltava' %>
+
+          <%= link_to "Ровенская", 'contacts/rovno-region#city', class: 'rl rgn_lnk19', id: 'Rovno', rel: 'Rovno' %>
+
+          <%= link_to "Сумская", 'contacts/sumy-region#city', class: 'rl rgn_lnk20', id: 'Sumy', rel: 'Sumy' %>
+
+          <%= link_to "Закарпатская", 'contacts/uzhgorod-region#city', class: 'rl rgn_lnk22', id: 'Uzhgorod', rel: 'Uzhgorod' %>
+
+          <%= link_to "Винницкая", 'contacts/vinnitsa-region#city', class: 'rl rgn_lnk23', id: 'Vinnitsa', rel: 'Vinnitsa' %>
+
+          <%= link_to "Запорожская", 'contacts/zaporozhye-region#city', class: 'rl rgn_lnk24', id: 'Zaporozhye', rel: 'Zaporozhye' %>
+
+          <%= link_to "Житомирская", 'contacts/zhitomir-region#city', class: 'rl rgn_lnk25', id: 'Zhitomir', rel: 'Zhitomir' %>
+
+          <%= link_to "Ивано-Франковская", 'contacts/ivano-frankovsk-region#city', class: 'rl rgn_lnk7', id: 'Ivano-Frankovsk', rel: 'Ivano-Frankovsk' %>
+
+          <%= link_to "Тернопольская", 'contacts/ternopol-region#city', class: 'rl rgn_lnk21', id: 'Ternopol', rel: 'Ternopol' %>
+
+          <%= link_to "Черновицкая", 'contacts/chernovtsy-region#city', class: 'rl rgn_lnk3', id: 'Chernovtsy', rel: 'Chernovtsy' %>
+        </div>
+      </div>
+
+
+      <div class="map_preloader">
+        <div class="prld1"> </div>
+        <div class="prld2"> </div>
+        <div class="prld3"> </div>
+        <div class="prld4"> </div>
+        <div class="prld5"> </div>
+        <div class="prld6"> </div>
+        <div class="prld7"> </div>
+        <div class="prld8"> </div>
+        <div class="prld9"> </div>
+        <div class="prld10"> </div>
+        <div class="prld11"> </div>
+        <div class="prld12"> </div>
+        <div class="prld13"> </div>
+        <div class="prld14"> </div>
+        <div class="prld15"> </div>
+        <div class="prld16"> </div>
+        <div class="prld17"> </div>
+        <div class="prld18"> </div>
+        <div class="prld19"> </div>
+        <div class="prld20"> </div>
+        <div class="prld21"> </div>
+        <div class="prld22"> </div>
+        <div class="prld23"> </div>
+        <div class="prld24"> </div>
+        <div class="prld25"> </div>
+      </div>
+    </div>
+  </div>
+  </html>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Bikeposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Oblast</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bikeposts.each do |bikepost| %>
+    <tr>
+      <td><%= bikepost.title %></td>
+      <td><%= bikepost.address %></td>
+      <td><%= bikepost.description %></td>
+      <td><%= bikepost.oblast %></td>
+      <td><%= bikepost.city %></td>
+      <td><%= link_to 'Show', bikepost %></td>
+      <td><%= link_to 'Edit', edit_bikepost_path(bikepost) %></td>
+      <td><%= link_to 'Destroy', bikepost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bikepost', new_bikepost_path %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Bikeposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Oblast</th>
+      <th>City</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bikeposts.where(status: 1).limit(1).order(created_at: :desc).each do |bikepost| %>
+    <tr>
+      <td><%= bikepost.title %></td>
+      <td><%= bikepost.address %></td>
+      <td><%= bikepost.description %></td>
+      <td><%= bikepost.oblast %></td>
+      <td><%= bikepost.city %></td>
+      <td><%= link_to 'Show', bikepost %></td>
+      <td><%= link_to 'Edit', edit_bikepost_path(bikepost) %></td>
+      <td><%= link_to 'Destroy', bikepost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+-->

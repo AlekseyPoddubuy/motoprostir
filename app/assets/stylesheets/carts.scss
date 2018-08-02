@@ -1,0 +1,56 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart {
+	margin: 20px 0 25px 0;
+
+}
+.cart-plus, .cart-minus {
+	background-color: #fff;
+	padding: 8px;
+}
+.cart-item {
+	padding: 10px;
+	border-bottom: 1px solid grey;
+	&.count {
+		padding: 20px;
+	}
+	:hover {
+		background-color: #fff;	
+	}
+}
+.cart-title, .cart-quantity, .cart-del, .cart-sum {
+	margin-top: 23px;
+}
+.cart-sum {
+	text-align: center;
+}
+.cart-img {
+	margin: 5px;
+}
+.total {
+	margin: 15px 0 15px 0;
+	text-align: right;
+	span {
+		font-size: 24px;
+		color: #2a5a5a;
+	}
+}
+.go-shop {
+	margin-top: 20px;
+}
+.cart-hot-items {
+	margin: 40px 0 40px 0;
+}
+.false-cart {
+	background-image: image-url('banner-cart.jpg');
+	h1 {
+		margin-top: 120px;
+		color: #000000;
+	}
+	h2 {
+		color: #000000;
+		margin-bottom: 130px;
+	}
+}

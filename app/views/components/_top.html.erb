@@ -1,0 +1,29 @@
+<div class="top">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5">
+				<div class="top-info">
+					<ul>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:motoprostir.sale@gmail.com">motoprostir.sale@gmail.com</a></li>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i> +38 063 637 01 39</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<div class="need-info">
+					<ul>
+						<% if admin_signed_in? %>
+						<li><%= link_to 'Admin Panel', items_path %></li>
+						<% end %>
+						<li><i class="fa fa-truck" aria-hidden="true"></i> <%= link_to "Оплата та доставка", soon_path %></li>
+						<li><i class="fa fa-exchange" aria-hidden="true"></i> <%= link_to "Обмін та повернення", soon_path %></li>
+						<!--
+						<li><i class="fa fa-comments" aria-hidden="true"></i> <%= link_to "Відгуки", reviews_path %></li>
+						-->
+						<li><i class="fa fa-user-o" aria-hidden="true"></i> <%= link_to "Вхід", root_path %></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

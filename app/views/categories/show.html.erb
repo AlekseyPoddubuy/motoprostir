@@ -1,0 +1,263 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="trigger-center">
+        <h1><%= @category.title %></h1>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="left-sidebar">
+        <p>Категорії товарів:</p>
+        <ul>
+          <% @categories.each do |category| %>
+          <% if current_page?(category_path(category)) %>
+          <li class="active-c">
+            <%= link_to category.title, category %>
+            <% else %>
+            <li>
+              <%= link_to category.title, category %>
+            </li>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <% if @items.count == 0 %>
+        <p>
+          Ця категорія скоро заповниться товарами, контент-менеджер дуже старається..
+        </p>
+        <%= image_tag 'tired.jpg'  %>
+        <% end %>
+        <div class="row">
+          <% @items.each do |item| %>
+          <div class="col-lg-4">
+            <div class="item-info">
+              <%= link_to (image_tag item.avatar.url), item, title: item.title %>
+              <% if item.publish == 1 %>
+              <span class="hot">Новинка</span>
+              <% elsif item.publish == 2 %>
+              <span class="discount">Акція</span>
+              <% elsif item.publish == 3 %>
+              <span class="sale">Топ</span>
+              <% end %>
+              <p class="item-title"><%= link_to truncate(item.title, length: 50), item, title: item.title %></p>
+              <p class="item-quantity">Наявність: <%= item.quantity %></p>
+              <p class="item-price">Ціна: <%= item.price %> грн</p>
+            <!--
+            <p class="item-title"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i></p>
+          -->
+          <%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning', title: 'Додати до кошика'%>
+
+        </div>
+      </div>
+      <% end %>
+<!--
+
+      <div class="example2">
+        <img src="/examples/20120821/bg.png" class="example_beauty">
+        <span>Текст</span>
+      </div>
+
+      <div class="container">
+        <h2>Bootstrap Counter Field</h2>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-minus"></span>
+                </button>
+              </span>
+              <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+
+        $('.btn-number').click(function(e){
+          e.preventDefault();
+          
+          fieldName = $(this).attr('data-field');
+          type      = $(this).attr('data-type');
+          var input = $("input[name='"+fieldName+"']");
+          var currentVal = parseInt(input.val());
+          if (!isNaN(currentVal)) {
+            if(type == 'minus') {
+
+              if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+              } 
+              if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+              }
+
+            } else if(type == 'plus') {
+
+              if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+              }
+              if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+              }
+
+            }
+          } else {
+            input.val(0);
+          }
+        });
+        $('.input-number').focusin(function(){
+         $(this).data('oldValue', $(this).val());
+       });
+        $('.input-number').change(function() {
+
+          minValue =  parseInt($(this).attr('min'));
+          maxValue =  parseInt($(this).attr('max'));
+          valueCurrent = parseInt($(this).val());
+          
+          name = $(this).attr('name');
+          if(valueCurrent >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+          } else {
+            alert('Sorry, the minimum value was reached');
+            $(this).val($(this).data('oldValue'));
+          }
+          if(valueCurrent <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+          } else {
+            alert('Sorry, the maximum value was reached');
+            $(this).val($(this).data('oldValue'));
+          }
+          
+          
+        });
+        $(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+             (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+             (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+               return;
+             }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+          e.preventDefault();
+        }
+      });
+    </script>
+  -->
+
+  <style>
+    .item-info {
+      display:inline-block;   
+      position:relative;
+      margin-top: 20px;
+
+    }
+    .hot {
+      display:inline-block;
+      position:absolute;
+      top: -15px;   
+      right: 59px;
+
+      /* Оформление текста */
+      color:#FFF;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:15px;
+      text-transform: uppercase; 
+
+      /* Фон */
+      background-color: green;
+      padding:5px 30px;
+    }
+
+    .sale {
+     display:inline-block;
+     position:absolute;
+     top: -15px;   
+     right: 59px;
+     width: 132px;
+
+     /* Оформление текста */
+     color:#FFF;
+     font-family:Arial, Helvetica, sans-serif;
+     font-size:15px;
+     text-transform: uppercase; 
+
+     /* Фон */
+     background-color: gold;
+     padding:5px 30px;
+   }
+
+   .discount {
+     display:inline-block;
+     position:absolute;
+     top: -15px;   
+     right: 59px;
+     width: 132px;
+
+     /* Оформление текста */
+     color:#FFF;
+     font-family:Arial, Helvetica, sans-serif;
+     font-size:15px;
+     text-transform: uppercase; 
+
+     /* Фон */
+     background-color: red;
+     padding:5px 30px;
+   }
+ </style>
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+<!--
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @category.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @category.body %>
+</p>
+
+<p>
+  <strong>Metatitle:</strong>
+  <%= @category.metatitle %>
+</p>
+
+<p>
+  <strong>Metdescription:</strong>
+  <%= @category.metdescription %>
+</p>
+
+<p>
+  <strong>Metakeywords:</strong>
+  <%= @category.metakeywords %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @category.slug %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+-->

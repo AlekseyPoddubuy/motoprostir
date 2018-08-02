@@ -1,0 +1,86 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require slick
+ *= require slick-theme
+ *= require jquery-ui
+ *= require font-awesome
+ *= require bootstrap/dist/css/bootstrap
+ */
+
+body {
+	background-image: image-url('mod.jpg');
+	font-family: 'Play', sans-serif !important ;
+}
+img {
+	width: 100%;
+}
+ul {
+	padding-left: 0;
+	margin-bottom: 0 !important;
+}
+ul li {
+	list-style-type: none;
+}
+a {
+	color: #000000;
+}
+.table-dark td, th {
+	padding: 5px 5px 5px 18px !important;
+	a {
+		color: gold;
+	}
+}
+.trigger-center {
+	text-align: center;
+	margin: 25px 0 20px 0;
+	h1 {
+		text-transform: uppercase;
+		font-size: 27px;
+	}
+}
+
+#lightgallery {
+	display: inline-block;
+	img {
+		width: 100px;
+		height: 65px;
+	}
+}
+#notice_wrapper {
+	background-color: rgba(13, 105, 134, 0.73);
+	text-align: center;
+	width: 100%;
+	padding: 7px;
+	color: #ffffff;
+}
+
+
+#lupa {
+    height:18px;
+    width:18px;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position:relative;
+    padding: 0;
+    background-color: transparent;
+}
+.center {
+	margin: 30px;
+	text-align: center;
+}
+.review-index {
+	margin-top: 25px;
+}

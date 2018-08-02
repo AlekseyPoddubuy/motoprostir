@@ -1,0 +1,54 @@
+<div class="help-to">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Пошук деталей закордоном</h1>
+        <p>Обирай модель свого мотоциклу, та отримуй пропозиції вживаних деталей із-за кордону</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<%= form_for @partsearch do |f| %>
+<%= f.collection_select :brand_id, Brand.order(:title), :id, :title, include_black: true %>
+<%= f.collection_select :motorcycle_id, Motorcycle.order(:title), :id, :title, include_black: true %>
+
+<%= f.submit "search" %>
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Parts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Delivery</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parts.each do |part| %>
+    <tr>
+      <td><%= part.title %></td>
+      <td><%= part.description %></td>
+      <td><img src="<%= part.description %>" alt="s"> </td>
+      <td><%= part.delivery %></td>
+      <td><%= link_to 'Show', part %></td>
+      <td><%= link_to 'Edit', edit_part_path(part) %></td>
+      <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part', new_part_path %>

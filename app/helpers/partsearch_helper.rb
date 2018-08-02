@@ -1,0 +1,2 @@
+module PartsearchHelper
+end

@@ -1,0 +1,21 @@
+  <%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, placeholder: 'Ваше ПІБ ', label: false, required: true %>
+    <%= f.input :phone, placeholder: 'Номер телефону ', label: false, required: true %>
+    <%= f.input :adress, placeholder: 'Адреса доставки замовлення (Київ, відділення НП 2)', label: false, required: true %>
+    <%= f.input :email, placeholder: 'motoprostir@gmail.com', label: false %>
+    <%= f.select :pay_type, options_for_select([["Наложений платіж", "Наложений платіж"],["Оплата на картку (Приват Банк)", "Оплата на картку (Приват Банк)"]]) %>
+
+    <% if admin_signed_in? %>
+    <%= f.select :status, options_for_select([["Oбробка", "process"],["Оплачено", "Paid"],["Відмова", "Cancel"]]) %>
+    <% end %>
+  </div>
+
+  <div class="center">
+    <div class="form-actions">
+      <%= f.button :submit, value: 'Оформити замовлення', class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>

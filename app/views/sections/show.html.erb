@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="trigger-center">
+				<h1><%= @section.title %></h1>
+			</div>
+		</div>
+		<div class="col-lg-9">
+			<div class="row">
+
+				<% @section.posts.each do |post| %>
+				<div class="col-lg-6">
+					<%= link_to (image_tag post.avatar.url), post %>
+					<p class="post-title"><%= link_to post.title, post %></p>
+					<p class="post-body">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, maiores quo! Distinctio consectetur dolore animi repudiandae molestias 
+					</p>
+					<p>
+						<i class="fa fa-eye" aria-hidden="true"></i> <%= "#{post.impressionist_count} перегляди" %>
+					</p>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="left-sidebar">
+				<p>Категорії товарів:</p>
+				<ul>
+					<% @sections.each do |section| %>
+					<% if current_page?(section_path(section)) %>
+					<li class="active-c">
+						<%= link_to section.title, section %>
+						<% else %>
+						<li>
+							<%= link_to section.title, section %>
+						</li>
+						<% end %>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @motorcycle.title %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @motorcycle.slug %>
+</p>
+
+<%= link_to 'Edit', edit_motorcycle_path(@motorcycle) %> |
+<%= link_to 'Back', motorcycles_path %>

@@ -1,0 +1,130 @@
+<% if @cart.line_products.count == 0 %>
+<div class="false-cart">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Ваш кошик досі пустий..</h1>
+				<h2>Треба це виправити ;)</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="cart-hot-items">
+	<div class="col-lg-12">
+		<div class="row">
+			<% @items.where(publish: 1).order(created_at: :asc).limit(6).each do |item| %>
+			<div class="col-lg-2">
+				<div class="item-info">
+					<%= link_to (image_tag item.avatar.url), item, title: item.title %>
+					<% if item.publish == 1 %>
+					<span class="hot">Новинка</span>
+					<% elsif item.publish == 2 %>
+					<span class="discount">Акція</span>
+					<% elsif item.publish == 3 %>
+					<span class="sale">Топ</span>
+					<% end %>
+					<p class="item-title"><%= link_to truncate(item.title, length: 40), item, title: item.title %></p>
+					<p class="item-quantity">Наявність: <%= item.quantity %></p>
+					<p class="item-price">Ціна: <%= item.price %> грн</p>
+					<%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning' %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<% else %>
+<div class="cart">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>Ваш кошик:</h2>
+			</div>
+			<% @cart.line_products.each do |line_product| %>
+			<div class="cart-item">
+
+				<div class="row">
+
+					<div class="col-lg-1">
+						<div class="cart-img">
+							<%= link_to (image_tag line_product.item.avatar.url), line_product.item  %>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="cart-title">
+							<%= link_to truncate(line_product.item.title, length: 50), line_product.item, title: line_product.item.title %>
+						</div>
+					</div>
+					<div class="col-lg-2">
+						<div class="cart-quantity">
+							<%= link_to "+", line_product_add_path(:id => line_product), method: :post, class: 'cart-plus' %> 
+							<%= line_product.quantity %> 
+							<% if line_product.quantity == 1 %>
+							<%= link_to "-", line_product_path(line_product), method: :delete, class: 'cart-minus' %>
+							<% else %>
+							<%= link_to "-", line_product_reduce_path(:id => line_product), method: :post, class: 'cart-minus' %>
+							<% end %>
+						</div>
+					</div>
+					<div class="col-lg-1">
+						<div class="cart-del">
+							<%= link_to "Видалити", line_product_path(line_product), method: :delete %>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="cart-sum">
+							<%= number_to_currency(line_product.total_price) %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<% end %>
+			<div class="col-lg-6">
+				<div class="go-shop">
+					<p>
+						<%= link_to 'Продовжити покупки', categories_path, class: 'btn btn-warning' %>
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="total">
+					<p>
+						Загальна сума: <span><%= number_to_currency(@cart.total_price) %></span>
+					</p>
+					<p>
+						<%= button_to "Оформити замовлення", new_order_path, method: :get, class: 'btn btn-primary' %>
+					</p>
+				</div>
+			</div>
+
+<!--
+				<table>
+					<% @cart.line_products.each do |line_product| %>
+					<tr id="cart-item">
+						<td id="cart-img"><%= image_tag line_product.item.avatar.url %></td>
+						<td><%= line_product.quantity %>&times;</td>
+						<td><%= link_to line_product.item.title, line_product.item %></td>
+						<td><%= button_to 'del', line_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						<td class="item_price"><%= number_to_currency(line_product.total_price) %></td>
+						<td>
+							<%= link_to "+", line_product_add_path(:id => line_product), method: :post %><%= line_product.quantity %><%= link_to "-", line_product_reduce_path(:id => line_product), method: :post %>
+							<%= link_to "Remove item", line_product_path(line_product), method: :delete %>
+						</td>
+					</tr>
+					<% end %>
+					<tr class="total_line">
+						<td colspan="2">Total</td>
+						<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+					</tr>
+				</table>
+			-->
+
+		</div>
+	</div>
+</div>
+</div>
+<% end %>
+
+<%# button_to 'Спорожнити кошик', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+

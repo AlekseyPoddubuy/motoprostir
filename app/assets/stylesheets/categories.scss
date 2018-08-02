@@ -1,0 +1,40 @@
+.categories-block {
+	padding-bottom: 25px;
+}
+.left-sidebar {
+	p {
+		margin: 20px 0 0 0;
+		padding: 10px 0 10px 0;
+		background-color: #2a5a5a;
+		text-transform: uppercase;
+		color: #fff;
+		text-align: center;
+	}
+	ul {
+		background-color: #fff;
+	}
+	a {
+		&:hover {
+			text-decoration: none;
+			color: #000;
+		}
+	}
+	li {
+		padding: 6px 5px 6px 25px;
+		&:hover {
+			background-color: gold;
+			color: #ffffff;
+		}
+	}
+}
+.active-c {
+	background-color: #222222;
+	a {
+		color: #ffffff;
+	}
+}
+.category-view {
+	p {
+		margin: 7px 0 7px 24px;
+	}
+}

@@ -1,0 +1,32 @@
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bikepost.title %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @bikepost.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bikepost.description %>
+</p>
+
+<p>
+  <strong>Oblast:</strong>
+  <%= @bikepost.oblast %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @bikepost.city %>
+</p>
+
+<%= link_to 'Edit', edit_bikepost_path(@bikepost) %> |
+<%= link_to 'Back', bikeposts_path %>

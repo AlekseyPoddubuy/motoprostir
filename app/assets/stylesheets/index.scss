@@ -1,0 +1,55 @@
+.main-trigger {
+	padding-top: 170px;
+	padding-bottom: 180px;
+	h2 {
+		font-size: 52px;
+		color: #fff;
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 45px;
+		color: #fff;
+	}
+}
+.newseller {
+	background-image: image-url('newseller.jpg');
+	background-size: cover;
+	margin-bottom: 20px;
+	input {
+		min-width: 300px;
+		padding: 4px;
+	}
+}
+.look {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 30px 0 5px 0;
+}
+.collect {
+	margin-bottom: 0;
+}
+.news-form {
+	padding: 30px 0 50px 0;
+}
+.post-to {
+	h1 {
+		span {
+			background-color: #2f8cef;
+			color: #fff;
+			padding: 10px 30px 10px 30px;
+		}
+	}
+	span {
+		background-color: gold;
+		color: #000;
+		padding: 7px;
+		border-radius: 4px;
+	}
+}
+.facebook {
+	background-color: #fff;
+	margin: 0;
+	padding: 5px 10px 5px 20px;
+}

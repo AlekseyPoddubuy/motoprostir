@@ -1,0 +1,19 @@
+// Place all the styles related to the parts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.help-to {
+	background-image: image-url('parts3.jpg');
+	height: 300px;
+	text-align: right;
+	background-position: center;
+	h1 {
+		margin-top: 120px;
+		color: #fff;
+	}
+	h2 {
+		color: #fff;
+	}
+	p {
+		color: #fff;
+	}
+}

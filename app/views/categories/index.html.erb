@@ -1,0 +1,64 @@
+<div class="categories-block">  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="trigger-center">
+          <h1>Choose your destiny:</h1>
+        </div>
+      </div>
+      <% @categories.each do |category| %>
+      <div class="col-lg-6">
+        <div class="category-view">
+          <%= link_to (image_tag category.avatar.url), category %>
+          <p><%= link_to category.title,category %></p>
+        </div>
+      </div>
+      <% end %>  
+    </div>
+  </div>
+</div>
+
+
+<!--
+<% if admin_signed_in? %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Metatitle</th>
+      <th>Metdescription</th>
+      <th>Metakeywords</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.title %></td>
+      <td><%= image_tag category.avatar.url %></td>
+      <td><%= category.body %></td>
+      <td><%= category.metatitle %></td>
+      <td><%= category.metdescription %></td>
+      <td><%= category.metakeywords %></td>
+      <td><%= category.slug %></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
+<% end %>
+-->

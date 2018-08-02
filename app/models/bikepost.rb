@@ -1,0 +1,2 @@
+class Bikepost < ApplicationRecord
+end

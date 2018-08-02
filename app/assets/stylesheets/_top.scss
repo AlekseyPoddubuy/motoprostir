@@ -1,0 +1,31 @@
+.top {
+	background-color: #2a5a5a;
+	padding: 5px;
+	.top-info {
+		color: #fff;
+	}
+	li {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	a {
+		color: #fff;
+		&:hover {
+			text-decoration: none;
+			color: gold;
+		}
+	}
+}
+
+.need-info {
+	text-align: right;
+	a {
+		color: #fff;
+		font-size: 14px;
+	}
+	li {
+		color: #fff;
+		margin-right: 7px;
+		display: inline-block;
+	}
+}
