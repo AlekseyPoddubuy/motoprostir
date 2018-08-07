@@ -30,24 +30,10 @@
 		<strong>Pay type:</strong>
 		<%= @order.pay_type %>
 	</p>
-
-
-	<% @order.line_products.each do |product| %>
-	<p>
-		<%= link_to product.item.title, product.item %>
-	</p>
-	<p>
-		<%= product.quantity %>x
-	</p>
-	<p>
-		<%= product.item.price %>
-	</p>
-
 	<strong>
 	</strong>
 </tr>
 <% end %>
-<%= @order.total_price %>
 
 
 
