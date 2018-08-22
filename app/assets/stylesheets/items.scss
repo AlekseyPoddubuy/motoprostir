@@ -12,10 +12,11 @@
 	padding: 13px;
 	&:hover {
 		background-color: #2a5a5a;
+		color: #fff;
 		a {
 			color: gold;
 		}
-		.item-quantity, .item-price {
+		.item-quantity, .item-price, .item-quantity-two, .item-quantity-one, .item-quantity-none {
 			color: #fff;
 		}
 	}
@@ -67,6 +68,9 @@
 .item-quantity-two {
 	color: green;
 	margin: 0;
+	&:hover {
+		color: #fff;
+	}
 }
 .buttons-cart {
 	display: flex;

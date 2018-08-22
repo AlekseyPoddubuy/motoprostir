@@ -14,13 +14,6 @@
   </div>
 
 
-  <% @cart.line_products.each do |line_product| %>
-  <%= link_to truncate(line_product.item.title, length: 50), line_product.item, title: line_product.item.title %>
-
-  <% end %>
-
-
-
   <div class="center">
     <div class="form-actions">
       <%= f.button :submit, value: 'Оформити замовлення', class: 'btn btn-primary' %>

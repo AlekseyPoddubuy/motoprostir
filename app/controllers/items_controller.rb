@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
    @item = Item.find params[:id]
-   5.times { @item.photos.build }
    @photos = Photo.all
    @fastorder = Fastorder.new
  end
