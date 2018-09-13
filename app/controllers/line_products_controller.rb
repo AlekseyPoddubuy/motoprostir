@@ -1,5 +1,6 @@
 class LineProductsController < ApplicationController
   include CurrentCart
+  layout 'admins'
   before_action :set_cart, only: [:create]
   before_action :set_line_product, only: [:show, :edit, :update, :destroy]
 
@@ -111,6 +112,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_product_params
-      params.require(:line_product).permit(:item_id, :quantity, :cart_id)
+      params.require(:line_product).permit(:item_id, :quantity, :cart_id, :photos)
     end
   end

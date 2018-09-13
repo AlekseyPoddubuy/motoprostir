@@ -1,0 +1,15 @@
+
+
+<% categories.each do |category, children| %>
+<% if current_page? (category_path(category)) %>
+<li class="active-c">
+
+    <% else %>
+    <li id="sub">
+        <% end %>
+        <i class="fa fa-link" aria-hidden="true"></i> <%= link_to category.title, category %>
+   </li>
+
+   <%= render "components/submenu_categories", categories: children if children.present? %>
+   <% end %>	
+

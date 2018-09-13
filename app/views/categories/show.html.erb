@@ -1,7 +1,35 @@
+<% content_for :head do %>
+<title><%= @category.metatitle %></title>
+
+<meta name="description" content="<%= @category.metdescription %>" />
+<meta name="keywords" content= "<%= @category.metakeywords %>" />
+<meta property="og:image" content="<%= @category.avatar %>" />
+
+<link rel="canonical" href="https://motoprostir.com.ua/" itemprop="url">
+
+<meta property="og:site_name" content="motoprostir.com.ua | <%= @category.metatitle %>">
+<meta property="og:url" content="https://motoprostir.com.ua/">
+<meta property="og:description" content="Прагнемо до революційних змін. Від маленького магазину аксесуарів до мотопорталу MOTOPROSTIR UKRAINE">
+<meta property="og:image" content="<%= @category.avatar %>">
+<meta property="og:type" content="website">
+
+<% end %>
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <div class="trigger-center">
+      <div class="breadcrums-category">
+        <% @category.ancestors.each do |category| %>
+        <%= link_to category.title, category %> | 
+        <% end %>
+        <%= link_to @category.title, @category %>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="trigger-category">
         <h1><%= @category.title %></h1>
       </div>
     </div>
@@ -9,26 +37,32 @@
       <div class="left-sidebar">
         <p>Категорії товарів:</p>
         <ul>
-          <% @categories.each do |category| %>
-          <% if current_page?(category_path(category)) %>
+          <% Category.roots.each do |category| %>
+          <% if current_page? (category_path(category)) %>
           <li class="active-c">
-            <%= link_to category.title, category %>
             <% else %>
             <li>
+              <% end %>
               <%= link_to category.title, category %>
+              <%= render "components/submenu_categories", categories: category.root.descendants.arrange %>
             </li>
             <% end %>
-            <% end %>
           </ul>
+
         </div>
       </div>
+
+
       <div class="col-lg-9">
-        <% if @items.count == 0 %>
-        <p>
-          Ця категорія скоро заповниться товарами, контент-менеджер дуже старається..
-        </p>
-        <%= image_tag 'tired.jpg'  %>
-        <% end %>
+        <div class="row">
+          <% @category.children.each do |category| %>
+          <div class="col-lg-4">
+            <%= image_tag category.avatar.url %>
+            <i class="fa fa-link" aria-hidden="true"></i> <%= link_to category.title, category %>
+          </div>
+          <% end %> 
+        </div>
+
         <div class="row">
           <% @items.each do |item| %>
           <div class="col-lg-4">
@@ -52,6 +86,7 @@
         </div>
       </div>
       <% end %>
+
 <!--
 
       <div class="example2">

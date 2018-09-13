@@ -1,147 +1,56 @@
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="trigger-center">
-      <h1>Аксесури на дальнячок</h1>
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="left-sidebar">
-        <p>Категорії товарів:</p>
-        <ul>
-          <% @categories.each do |category| %>
-          <li><%= link_to category.title, category, class: "nav-link #{'active' if current_page?(category_path(category) )}" %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="col-lg-9">
-      <div class="row">
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h2>Товари на сайті:</h2>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>
+                      Назва
+                    </th>
+                    <th>
+                      Ціна
+                    </th>
+                    <th>
+                      Категория
+                    </th>
+                    <th>
+                      Настройки
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
 
-
-        <% @items.each do |item| %>
-        <div class="col-lg-4">
-          <div class="item-info">
-            <%= link_to (image_tag item.avatar.url), item %>
-            <% if item.publish == 1 %>
-            <span class="hot">Новинка</span>
-            <% elsif item.publish == 2 %>
-            <span class="discount">Акція</span>
-            <% elsif item.publish == 3 %>
-            <span class="sale">Топ</span>
-            <% end %>
-            <p class="item-title"><%= link_to item.title, item %></p>
-            <p class="item-quantity">Наявність: <%= item.quantity %></p>
-            <p class="item-price">Ціна: <%= item.price %> грн</p>
-            <!--
-            <p class="item-title"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i></p>
+                  <% @items.each do |item| %>
+                  <tr>
+                    <td><%= truncate(item.title, length: 40) %></td>
+                    <td><%= number_to_currency(item.price) %></td>
+                    <td><%= item.quantity %></td>
+                    <td><%= item.publish %></td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Функції
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <%= link_to 'Переглянути', item, class: "dropdown-item" %>
+                          <%= link_to "Редагувати", edit_item_path(item), class: "dropdown-item" %>
+                          <%= link_to 'Видалити', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" %>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <% end %>
-
-      <style>
-        .item-info {
-          display:inline-block;   
-          position:relative;
-          margin-top: 20px;
-
-        }
-        .hot {
-          display:inline-block;
-          position:absolute;
-          top: -15px;   
-          right: 59px;
-
-          /* Оформление текста */
-          color:#FFF;
-          font-family:Arial, Helvetica, sans-serif;
-          font-size:15px;
-          text-transform: uppercase; 
-
-          /* Фон */
-          background-color: green;
-          padding:5px 30px;
-        }
-
-        .sale {
-         display:inline-block;
-         position:absolute;
-         top: -15px;   
-         right: 59px;
-         width: 132px;
-
-         /* Оформление текста */
-         color:#FFF;
-         font-family:Arial, Helvetica, sans-serif;
-         font-size:15px;
-         text-transform: uppercase; 
-
-         /* Фон */
-         background-color: gold;
-         padding:5px 30px;
-       }
-
-       .discount {
-         display:inline-block;
-         position:absolute;
-         top: -15px;   
-         right: 59px;
-         width: 132px;
-
-         /* Оформление текста */
-         color:#FFF;
-         font-family:Arial, Helvetica, sans-serif;
-         font-size:15px;
-         text-transform: uppercase; 
-
-         /* Фон */
-         background-color: red;
-         padding:5px 30px;
-       }
-     </style>
-
-
-   </div>
-
- </div>
-</div>
-</div>
-
-
-
-
--->
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="trigger-center">
-      <h1>Перелік наших товарів:</h1>      <%= link_to 'Додати новий товар', new_item_path, class: 'btn btn-primary' %>
-      </div>
-      <table  class="table table-sm table-dark">
-        <thead>
-          <tr>
-            <th>Назва</th>
-            <th>Ціна товару в грн</th>
-            <th>Кількість</th>
-            <th>Опубліковано</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
-          <tr>
-            <td><%= truncate(item.title, length: 40) %></td>
-            <td><%= number_to_currency(item.price) %></td>
-            <td><%= item.quantity %></td>
-            <td><%= item.publish %></td>
-            <td><%= link_to 'Переглянути', item %></td>
-            <td><%= link_to 'Редагувати', edit_item_path(item) %></td>
-            <td><%= link_to 'Видалити', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>

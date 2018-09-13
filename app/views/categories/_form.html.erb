@@ -1,52 +1,56 @@
 <%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<% if category.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% category.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :category_title %>
-  </div>
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title, id: :category_title %>
+</div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.file_field :avatar %>
-  </div>
+<div class="field">
+  <%= form.label :title %>
+  <%= form.file_field :avatar %>
+</div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body, id: :category_body %>
-  </div>
+<%= form.label :parent_id %>
+<%= form.collection_select :parent_id, Category.order(:title), :id, :title, include_blank: true %>
 
-  <div class="field">
-    <%= form.label :metatitle %>
-    <%= form.text_field :metatitle, id: :category_metatitle %>
-  </div>
 
-  <div class="field">
-    <%= form.label :metdescription %>
-    <%= form.text_field :metdescription, id: :category_metdescription %>
-  </div>
+<div class="field">
+  <%= form.label :body %>
+  <%= form.text_field :body, id: :category_body %>
+</div>
 
-  <div class="field">
-    <%= form.label :metakeywords %>
-    <%= form.text_field :metakeywords, id: :category_metakeywords %>
-  </div>
+<div class="field">
+  <%= form.label :metatitle %>
+  <%= form.text_field :metatitle, id: :category_metatitle %>
+</div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug, id: :category_slug %>
-  </div>
+<div class="field">
+  <%= form.label :metdescription %>
+  <%= form.text_field :metdescription, id: :category_metdescription %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="field">
+  <%= form.label :metakeywords %>
+  <%= form.text_field :metakeywords, id: :category_metakeywords %>
+</div>
+
+<div class="field">
+  <%= form.label :slug %>
+  <%= form.text_field :slug, id: :category_slug %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>

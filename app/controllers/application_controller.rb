@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
-	before_action :header_search, :subscribers
+	before_action :subscribers, :big_scope
 
 	protect_from_forgery with: :exception
 
-	def header_search
+	def big_scope
 		@search = Search.new
+		@posts =Post.all
+		@orders = Order.all
 	end
 
 	def posts_on_main

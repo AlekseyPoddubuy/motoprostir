@@ -1,7 +1,18 @@
 <% content_for :head do %>
 <title><%= @item.metatitle %></title>
+
 <meta name="description" content="<%= @item.metadescription %>" />
 <meta name="keywords" content= "<%= @item.metakeywords %>" />
+<meta property="og:image" content="<%= @item.avatar %>" />
+
+<link rel="canonical" href="https://motoprostir.com.ua/" itemprop="url">
+
+<meta property="og:site_name" content="motoprostir.com.ua | <%= @item.metatitle %>">
+<meta property="og:url" content="https://motoprostir.com.ua/">
+<meta property="og:description" content="Прагнемо до революційних змін. Від маленького магазину аксесуарів до мотопорталу MOTOPROSTIR UKRAINE">
+<meta property="og:image" content="<%= @item.avatar %>">
+<meta property="og:type" content="website">
+
 <% end %>
 
 <% if notice == nil %>
@@ -11,11 +22,25 @@
 </div>
 <% end %>
 
+<!--
+
+ <% @item.photos.each do |variant| %>
+    <label>
+      <input type="radio" name="variant_id" value="<%= variant.id %>" /><%= variant.id %>
+    </label>
+  <% end %>
+-->
+
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
       <div class="breadcrums">
-        <%= link_to "Каталог", categories_path %> > <%= link_to @item.category.title, @item.category %>
+
+        <% @item.category.ancestors.each do |category| %>
+        <%= link_to category.title, category %> | 
+        <% end %>
+        <%= link_to @item.category.title, @item.category %>  
+
       </div>
     </div>
     <div class="col-lg-8">
@@ -33,17 +58,20 @@
     <div class="col-lg-6">
       <p class="item-show-title"><%= truncate(@item.title, length: 55) %></p>
       <p class="item-sku">SKU: <%= @item.sku %></p>
+
+     <!--
       <p class="item-review">
-       <%= link_to 'Читати відгуки', '#review-leave' %> (<%= @item.reviews.where(status: 1).count %>) | <%= link_to 'Залишити відгук',  '#review-leave' %> 
+       <% link_to 'Читати відгуки', '#review-leave' %> (<%= @item.reviews.where(status: 1).count %>) | <%= link_to 'Залишити відгук',  '#review-leave' %> 
      </p>
-     <% if @item.quantity == 0 %>
-     <p>Під замовлення (10-14 днів)</p>
-     <% elsif @item.quantity < 3 %>
-     <p class="item-quantity-one">Товар закінчується</p>
-     <% elsif @item.quantity >= 3 %>
-     <p class="item-quantity-two">В наявності</p>
-     <% end %>
-     <p class="item-price">Ціна: <span><%= number_to_currency(@item.price) %></span></p>
+   -->
+   <% if @item.quantity == 0 %>
+   <p>Під замовлення (10-14 днів)</p>
+   <% elsif @item.quantity < 3 %>
+   <p class="item-quantity-one">Товар закінчується</p>
+   <% elsif @item.quantity >= 3 %>
+   <p class="item-quantity-two">В наявності</p>
+   <% end %>
+   <p class="item-price">Ціна: <span><%= number_to_currency(@item.price) %></span></p>
 <!--
      <p class="item-color">Цвет: Black/Red/White</p>
      <p class="item-size">Size: Y T H M D</p>
@@ -75,41 +103,10 @@
    <%= @item.description.html_safe %>
  </div>
 </div>
-<div class="col-lg-12">
-  <div class="trigger-center">
-    <h4>Відгуки про <%= @item.title %></h4>
-  </div>
 </div>
-<div class="col-lg-12">
+</div>
 
-  <div class="reviews-block">
-    <% if @item.reviews.where(status: 1).count == 0 %>
-    <div class="col-lg-12">
-      <div class="trigger-center">
-        <p>Відгуків по даному товару ще немає... Станьте першим!</p>
-      </div>
-    </div>
-    <% end %>
-    <% @item.reviews.where(status: 1).each do |review| %>
-    <div class="col-lg-12">
-      <div class="item-reviews">
-        <p><strong><%= review.name %></strong>  <strong><%= review.surname %></strong></p>
-        <p>
-          <%= review.body %> 
-          <% if admin_signed_in? %>
-          <%= link_to 'Del', [review.item, review], method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </p>
-        <div id="review-leave">
-        </div>
-      </div>
-    </div>
-    <% end %>
-    <%= render 'reviews/form' %>
-  </div>
-</div>
-</div>
-</div>
+
 
 
 <% if admin_signed_in?  %>
@@ -117,6 +114,7 @@
 <br>
 <div class="container">
   <div class="row">
+
 
     <% @item.photos.each do |photo|%>
     <div class="col-lg-4">
@@ -135,7 +133,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Форма швидкого замовлення</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Форма швидкого замовлення</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -146,8 +144,8 @@
           <%= form_for @fastorder do |f| %>
           <%= f.text_field :name, required: true, placeholder: "Ваше ПІБ" %>
           <%= f.text_field :phone, required: true, placeholder: "Номер телефону" %>
-          <%= f.text_field :link, required: true, value: @item.id %>
-          <%= f.text_area :comment, required: true, placeholder: "Короткий коментар", value: "Я хочу придбати " + @item.title, class: "hidden" %>
+          <%= f.text_field :link, value: @item.title, class: "hidden"  %>
+          <%= f.text_area :comment, required: true, placeholder: "Короткий коментар", value: "Я хочу придбати " + @item.title%>
           <%=f.submit 'Придбати в один клік', class: "btn btn-primary"  %>
           <% end %> 
         </div>
@@ -155,12 +153,3 @@
     </div>
   </div>
 </div>
-
-
-
-<style>
-  .fotorama__error {
-    background: transparent;
-    display: none;
-  }
-</style>

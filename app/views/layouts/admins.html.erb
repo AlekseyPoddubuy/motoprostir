@@ -2,9 +2,8 @@
 <html>
 <head>
 	<title>Motoprostir</title>
-	<%= csrf_meta_tags %>
 
-	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= stylesheet_link_tag    'admins' %>
 	<%= javascript_include_tag 'application' %>
 	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>   
@@ -20,9 +19,521 @@
 </head>
 
 <body>
-	<%= render 'components/top' %>
-	<%= render 'components/header' %>
-	<%= yield %>
-	<%= render 'components/footer' %>
-</body>
-</html>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+
+        <%= link_to (image_tag "logo-m.png"), root_path, class: "navbar-brand brand-logo", target: :blank %>
+        <a class="navbar-brand brand-logo-mini" href="../../index.html">
+          <%= image_tag "logo-m.png" %>
+        </a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+          <li class="nav-item">
+            <%# link_to (dashboard_path), class: 'nav-link' do %>
+            Документация
+          <!--
+              <span class="badge badge-primary ml-1">Новинки</span>
+            -->
+            <%# end %>
+          </li>
+          <li class="nav-item active">
+            <%# link_to (dashboard_path), class: 'nav-link' do %>
+            <i class="mdi mdi-elevation-rise"></i>
+            Статистика
+            <%# end %>
+          </li>
+          <li class="nav-item">
+            <%# link_to (goods_path), class: 'nav-link' do %>
+            <i class="mdi mdi-bookmark-plus-outline"></i>
+            База знаний для франчайзи
+            <%# end %>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <i class="mdi mdi-file-document-box"></i>
+              <span class="count">7</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <div class="dropdown-item">
+                <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
+                </p>
+                <span class="badge badge-info badge-pill float-right">View all</span>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <!--
+                    <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
+                  -->
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
+                    <span class="float-right font-weight-light small-text">1 Minutes ago</span>
+                  </h6>
+                  <p class="font-weight-light small-text">
+                    The meeting is cancelled
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <!--
+                    <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
+                  -->
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
+                    <span class="float-right font-weight-light small-text">15 Minutes ago</span>
+                  </h6>
+                  <p class="font-weight-light small-text">
+                    New product launch
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <!--
+                    <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
+                  -->
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
+                    <span class="float-right font-weight-light small-text">18 Minutes ago</span>
+                  </h6>
+                  <p class="font-weight-light small-text">
+                    Upcoming board meeting
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="mdi mdi-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <a class="dropdown-item">
+                <p class="mb-0 font-weight-normal float-left">Последние обновления в CRM
+                </p>
+                <span class="badge badge-pill badge-warning float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="mdi mdi-alert-circle-outline mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-medium text-dark">ss</h6>
+                  <p class="font-weight-light small-text">
+                    Just now
+                  </p>
+                </div>                
+
+              </a>
+
+
+
+
+
+
+<!--
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="mdi mdi-comment-text-outline mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
+                  <p class="font-weight-light small-text">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="mdi mdi-email-outline mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
+                  <p class="font-weight-light small-text">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            -->
+          </div>
+        </li>
+        <li class="nav-item dropdown d-none d-xl-inline-block">
+          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <span class="profile-text">Привет, sss!</span>
+            <%= image_tag "logo-m.png", class: 'img-xs rounded-circle' %>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+            <a class="dropdown-item p-0">
+              <div class="d-flex border-bottom">
+                <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                  <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
+                </div>
+                <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
+                  <i class="mdi mdi-account-outline mr-0 text-gray"></i>
+                </div>
+                <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                  <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                </div>
+              </div>
+            </a>
+            <%= link_to "Управление аккаунтами", class: 'dropdown-item mt-2' %>
+            <%= link_to "Выйти из системы", class: 'dropdown-item' %>
+          </div>
+        </li>
+      </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <div class="nav-link">
+            <div class="user-wrapper">
+              <div class="profile-image">
+                <%# image_tag "face1.jpg" %>
+              </div>
+              <div class="text-wrapper">
+                <p class="profile-name">sss</p>
+                <div>
+                  <small class="designation text-muted">Admin</small>
+                  <span class="status-indicator online"></span>
+                </div>
+              </div>
+            </div>
+
+            <%= link_to (new_item_path) do %>
+            <button class="btn btn-success btn-block">
+              Добавить товар
+              <i class="mdi mdi-plus"></i>
+            </button>
+            <% end %>
+            <br>
+            <%= link_to (new_post_path) do %>
+            <button class="btn btn-warning btn-block">
+              Добавить новость
+              <i class="mdi mdi-plus"></i>
+            </button>
+            <% end %>
+
+          </div>
+        </li>
+
+
+        <li class="nav-item">
+          <%= link_to (orders_path), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-elevation-rise"></i>
+          <span class="menu-title">Замовлення 
+          <span class="badge badge-danger"><%= @orders.where(status: "process").count%></span>
+          </span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to (items_path), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-elevation-rise"></i>
+          <span class="menu-title">Товари</span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to (categories_path), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-account-multiple"></i>
+          <span class="menu-title">Категорії</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="menu-icon mdi mdi-backup-restore"></i>
+            <span class="menu-title">Управление SRM</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <%= link_to ('#'), class: "nav-link" do %>
+                <span class="menu-title"> Страны для вакансий</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to ('#'), class: "nav-link" do %>
+                <span class="menu-title"> Новости</span>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to ('#'), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-chart-line"></i>
+          <span class="menu-title">Статистические данные</span>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to ('#'), class: "nav-link" do %>
+          <i class="menu-icon mdi mdi-chart-arc"></i>
+          <span class="menu-title">Bug's and propose CRM</span>
+          <% end %>
+        </li>
+<!--
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-restart"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/samples/login.html"> Login </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/samples/register.html"> Register </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        -->
+      </ul>
+    </nav>
+    <!-- partial -->
+
+
+    <%= yield %>
+
+        <!--
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Striped Table</h4>
+                    <p class="card-description">
+                      Add class
+                      <code>.table-striped</code>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>
+                              User
+                            </th>
+                            <th>
+                              First name
+                            </th>
+                            <th>
+                              Progress
+                            </th>
+                            <th>
+                              Amount
+                            </th>
+                            <th>
+                              Deadline
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-1.png" alt="image" />
+                            </td>
+                            <td>
+                              Herman Beck
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $ 77.99
+                            </td>
+                            <td>
+                              May 15, 2015
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-2.png" alt="image" />
+                            </td>
+                            <td>
+                              Messsy Adam
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $245.30
+                            </td>
+                            <td>
+                              July 1, 2015
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-3.png" alt="image" />
+                            </td>
+                            <td>
+                              John Richards
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $138.00
+                            </td>
+                            <td>
+                              Apr 12, 2015
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-4.png" alt="image" />
+                            </td>
+                            <td>
+                              Peter Meggik
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $ 77.99
+                            </td>
+                            <td>
+                              May 15, 2015
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-1.png" alt="image" />
+                            </td>
+                            <td>
+                              Edward
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $ 160.25
+                            </td>
+                            <td>
+                              May 03, 2015
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-2.png" alt="image" />
+                            </td>
+                            <td>
+                              John Doe
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $ 123.21
+                            </td>
+                            <td>
+                              April 05, 2015
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">
+                              <img src="../../images/faces-clipart/pic-3.png" alt="image" />
+                            </td>
+                            <td>
+                              Henry Tom
+                            </td>
+                            <td>
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </td>
+                            <td>
+                              $ 150.00
+                            </td>
+                            <td>
+                              June 16, 2015
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+
+
+      <!-- page-body-wrapper ends -->
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid clearfix">
+        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+          <a href="https://esw.com.ua/" target="_blank">Euro Study & Work</a>. Все права защищены.</span>
+          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+            <i class="mdi mdi-heart text-danger"></i>
+          </span>
+        </div>
+      </footer>
+
+    </body>
+    </html>

@@ -28,20 +28,57 @@
 
 
 <!-- Categoriation for post's -->
-   <div class="col-lg-3">
-      <div class="left-sidebar">
-        <p>Категорії товарів:</p>
-        <ul>
-          <% @sections.each do |section| %>
-          <% if current_page?(section_path(section)) %>
-          <li class="active-c">
-            <%= link_to section.title, section %>
-            <% else %>
-            <li>
-              <%= link_to section.title, section %>
-            </li>
-            <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+<div class="col-lg-3">
+	<div class="left-sidebar">
+		<p>Категорії товарів:</p>
+		<ul>
+			<% @sections.each do |section| %>
+			<% if current_page?(section_path(section)) %>
+			<li class="active-c">
+				<%= link_to section.title, section %>
+				<% else %>
+				<li>
+					<%= link_to section.title, section %>
+				</li>
+				<% end %>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+
+
+	<!-- Reviews for item's-->
+	
+	<div class="col-lg-12">
+		<div class="trigger-center">
+			<h4>Відгуки про <%= @item.title %></h4>
+		</div>
+	</div>
+	<div class="col-lg-12">
+
+		<div class="reviews-block">
+			<% if @item.reviews.where(status: 1).count == 0 %>
+			<div class="col-lg-12">
+				<div class="trigger-center">
+					<p>Відгуків по даному товару ще немає... Станьте першим!</p>
+				</div>
+			</div>
+			<% end %>
+			<% @item.reviews.where(status: 1).each do |review| %>
+			<div class="col-lg-12">
+				<div class="item-reviews">
+					<p><strong><%= review.name %></strong>  <strong><%= review.surname %></strong></p>
+					<p>
+						<%= review.body %> 
+						<% if admin_signed_in? %>
+						<%= link_to 'Del', [review.item, review], method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>
+					</p>
+					<div id="review-leave">
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<%= render 'reviews/form' %>
+		</div>
+	</div>

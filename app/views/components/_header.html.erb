@@ -1,18 +1,18 @@
 <header>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-2">
+			<div class="col-lg-2 col-sm-3 col-xs-6">
 				<div class="logo">
 					<%= link_to (image_tag 'logo-m.png'), root_path %>
 				</div>
 			</div>
-			<div class="col-lg-10">
+			<div class="col-lg-10 col-sm-9 col-xs-6">
 				<div class="menu">
 					<ul>
 						<li><%= link_to 'Головна', root_path %></li>
 						<li><%= link_to 'Каталог товарів', categories_path %></li>
 						<li><%= link_to 'Партнерство', cooperation_path %></li>
-						<li><%= link_to 'Мото-новини', posts_path %></li>
+						<li><%= link_to 'Motoprostir | Блог', posts_path %></li>
 						<% if @cart == nil %>
 						<li class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <%= link_to '0 товарів', categories_path %></li>
 

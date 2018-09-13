@@ -11,92 +11,92 @@
 </div>
 <% end %>
 
-<div class="container">
+
+
+
+
+
+
+
+
+<form class="form-sample">
+  <p class="card-description">
+    Первичная информация:
+  </p>
   <div class="row">
-    <div class="col-lg-12">
-      <div class="form-center">
-
-        <div class="field">
-          Назва товару:
-          <%= form.text_field :title, id: :item_title, required: true %>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Назва:</label>
+        <div class="col-sm-9">
+          <%= form.text_field :title, id: :item_title, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Категорія:</label>
+        <div class="col-sm-9">
+          <%= form.collection_select :category_id, Category.where(@category_id), :id, :title, class: "form-control" %>
 
-        <div class="field">
-          Категорія товару:
-          <br>
-          <%= form.collection_select :category_id, Category.where(@category_id), :id, :title %>
         </div>
-
-        <div class="field">
-          SKU
-          <%= form.text_field :sku, id: :item_sku, required: true %>
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">SKU:</label>
+        <div class="col-sm-9">
+          <%= form.text_field :sku, id: :item_sku, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
-
-        <div class="field">
-          Основні характеристики:
-          <%= form.text_area :body, id: :item_body %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Страна роботы:</label>
+        <div class="col-sm-9">
         </div>
-
-        <div class="field">
-          Детальний опис товару:
-          <%= form.label :description %>
-          <%= form.text_area :description, id: :item_description %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Актуальность:</label>
+        <div class="col-sm-9">
         </div>
-
-        <div class="field">
-          <%= form.label :slug %>
-          <%= form.text_field :slug, id: :item_slug %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Актуальность:</label>
+        <div class="col-sm-9">
         </div>
-
-        <div class="field">
-          Головна картинка..
-          <%= form.file_field :avatar %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Дата создания:</label>
+        <div class="col-sm-9">
+          <div class="date-picker">
+          </div>
         </div>
-
-        <div class="field">
-          <%= form.label :metatitle %>
-          <%= form.text_field :metatitle, id: :item_metatitle, required: true %>
-        </div>
-
-        <div class="field">
-          <%= form.label :metadescription %>
-          <%= form.text_field :metadescription, id: :item_metadescription, required: true %>
-        </div>
-
-        <div class="field">
-          <%= form.label :metakeywords %>
-          <%= form.text_field :metakeywords, id: :item_metakeywords, required: true %>
-        </div>
-
-        <div class="field">
-          Ціна товару:
-          <%= form.label :price %>
-          <%= form.number_field :price, id: :item_price, required: true %>
-        </div>
-
-        <div class="field">
-          НОВИНКА, ТОП, АКЦІЯ 
-          <%= form.select :publish, options_for_select([["БЕЗ РОЗДІЛУ", 0],["НОВИНКА", 1],["АКЦІЯ", 2],["ТОП", 3]]), multiple: true %>
-        </div>
-
-        <div class="field">
-          Кількість
-          <%= form.number_field :quantity, id: :item_quantity, required: true %>
-        </div>
-
-
-        <%= form_for @item do |f| %>
-        <%= f.fields_for :photos do |h| %>
-        <%= h.file_field :avatar %>
-        <% end %>
-        <% end %>
-
-        <div class="actions">
-          <%= form.submit %>
-        </div>
-        <% end %>
-
       </div>
     </div>
   </div>
+  <p class="card-description">
+    Описание вакансии
+  </p>
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+  </div>
+  <p class="card-description">
+   <p>Информация для франчайзи:</p>
+ </p>
+ <div class="row">
+  <div class="col-md-12">
+  </div>
 </div>
+<br>
+<%= form.submit class: "btn btn-success mr-2", value: "Обновить"%>
+</form>
+<% end %>
+
+

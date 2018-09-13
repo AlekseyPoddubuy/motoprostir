@@ -1,17 +1,18 @@
+<% content_for :head do %>
 <title>Магазин мото-аксесуарів MOTOPROSTIR | Україна</title>
+
 <meta name="description" content="We are motoprostir!" />
 <meta name="keywords" content= "We are motoprostir!" />
 <meta property="og:image" content="http://206.81.30.164/assets/ready-3f10a5ec5563675f257242d83c9acd26d761a6685eabdf63de54c870a69372af.jpg" />
+
 <link rel="canonical" href="https://motoprostir.com.ua/" itemprop="url">
+
 <meta property="og:site_name" content="motoprostir.com.ua | Придбати мото аксесуари: ціна, відуги, продаж.">
 <meta property="og:url" content="https://motoprostir.com.ua/">
 <meta property="og:description" content="Прагнемо до революційних змін. Від маленького магазину аксесуарів до мотопорталу MOTOPROSTIR UKRAINE">
 <meta property="og:image" content="http://206.81.30.164/assets/logo-m-76831c3b6528fc0d5d2dc2e2584ef1037ad03517f24dea8b9aea9425d0d7b5ea.png">
 <meta property="og:type" content="website">
-
-
-
-
+<% end %>
 
 <div class="main-items">
 	<div class="banner2">
@@ -25,103 +26,87 @@
 				</div>			
 			</div>
 		</div>
-		<div class="col-lg-12">
-			<div class="row">
-				<% @items.order(created_at: :asc).limit(6).each do |item| %>
-				<div class="col-lg-2 col-md-4">
-					<div class="item-info">
-						<%= link_to (image_tag item.avatar.url), item, title: item.title %>
-						<% if item.publish == 1 %>
-						<span class="hot-main">Новинка</span>
-						<% elsif item.publish == 2 %>
-						<span class="discount-main">Акція</span>
-						<% elsif item.publish == 3 %>
-						<span class="sale-main">Топ</span>
-						<% end %>
-						<p class="item-title"><%= link_to truncate(item.title, length: 40), item, title: item.title %></p>
+	</div>
+</div>
 
-						<% if item.quantity == 0 %>
-						<p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
-						<% elsif item.quantity < 3 %>
-						<p class="item-quantity-one">Товар закінчується</p>
-						<% elsif item.quantity >= 3 %>
-						<p class="item-quantity-two">В наявності</p>
-						<% end %>
-						<p class="item-price">Ціна: <%= item.price %> грн</p>
-						<%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning' %>
-					</div>
+<div class="hots">
+	<div class="container-fluid">
+		<div class="row">
+			<% @items.order(created_at: :asc).limit(6).each do |item| %>
+			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+				<div class="item-info">
+					<%= link_to (image_tag item.avatar.url), item, title: item.title %>
+					<% if item.publish == 1 %>
+					<span class="hot-main">Новинка</span>
+					<% elsif item.publish == 2 %>
+					<span class="discount-main">Акція</span>
+					<% elsif item.publish == 3 %>
+					<span class="sale-main">Топ</span>
+					<% end %>
+					<p class="item-title"><%= link_to truncate(item.title, length: 40), item, title: item.title %></p>
+
+					<% if item.quantity == 0 %>
+					<p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
+					<% elsif item.quantity < 3 %>
+					<p class="item-quantity-one">Товар закінчується</p>
+					<% elsif item.quantity >= 3 %>
+					<p class="item-quantity-two">В наявності</p>
+					<% end %>
+					<p class="item-price">Ціна: <%= item.price %> грн</p>
+					<%= link_to "Переглянути", item, class: "btn btn-warning"%>
+					<%# button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning' %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="post-to">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1><span>Будь в курсі наших останніх новинок</span></h1>
+				<p><span>Слідкуй за блогом, сторінками в Facebook та Instagram, звісно, якщо тобі цікаво що далі..</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="trigger-center">
+		<h3>Команда MotoProstir в соціальних мережах:</h3>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<a href="https://www.facebook.com/motoprostir.ukraine/" target="blank">
+				<%= image_tag 'helmet-integral-vintage.jpg' %>
+			</a>
+			<p class="facebook">
+				<a href="https://www.facebook.com/motoprostir.ukraine/" target="blank">Facebook - Click - Clack</a>
+			</p>
+			<%= image_tag 'slide3.jpg' %>
+			<p class="facebook">
+				<a href="https://www.instagram.com/motoprostir.ukraine/" target="blank">Instagram - Badaw - Boom</a>
+			</p>
+			<%= image_tag 'parts3.jpg' %>
+			<p class="facebook">
+				YouTube - Raaa - Pa - Paw
+			</p>
+		</div>
+		<div class="col-lg-6">
+			<div class="row">
+				<% @posts.each do |post| %>
+				<div class="col-lg-12">
+					<%= link_to (image_tag post.avatar.url), post %>
+					<p class="post-title"><%= link_to post.title, post %></p>
+					<p>
+						Опубліковано: <%= post.datetime.strftime("%d.%m.%Y") %> | 
+						<i class="fa fa-eye" aria-hidden="true"></i> <%= "#{post.impressionist_count + 20} перегляди"%>
+					</p>
 				</div>
 				<% end %>
 			</div>
 		</div>
-		<div class="post-to">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<h1><span>Будь в курсі наших останніх новинок</span></h1>
-						<p><span>Слідкуй за блогом, сторінками в Facebook та Instagram, звісно, якщо тобі цікаво що далі..</span></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="trigger-center">
-				<h3>Команда MotoProstir в соціальних мережах:</h3>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<a href="https://www.facebook.com/motoprostir.ukraine/" target="blank">
-						<%= image_tag 'helmet-integral-vintage.jpg' %>
-					</a>
-					<p class="facebook">
-						<a href="https://www.facebook.com/motoprostir.ukraine/" target="blank">Facebook - Click - Clack</a>
-					</p>
-					<%= image_tag 'slide3.jpg' %>
-					<p class="facebook">
-						Instagram - Badaw - Boom
-					</p>
-					<%= image_tag 'parts3.jpg' %>
-					<p class="facebook">
-						YouTube - Raaa - Pa - Paw
-					</p>
-				</div>
-				<div class="col-lg-6">
-					<div class="row">
-						<% @posts.each do |post| %>
-						<div class="col-lg-12">
-							<%= link_to (image_tag post.avatar.url), post %>
-							<p class="post-title"><%= link_to post.title, post %></p>
-							<p>
-								Опубліковано: <%= post.datetime.strftime("%d.%m.%Y") %> | 
-							</p>
-						</div>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
-		<footer style="background: #222222;">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-2">
-						<div class="logo">
-							<p>motoProstir</p>
-						</div>
-					</div>
-					<div class="col-lg-10">
-						<p class="footer-block">Подорожі на мотоциклі - один з найкращих видів відпочинку.</p>
-					</div>
-				</div>
-			</div>
-		</footer>
 	</div>
 </div>
-<script>
-	$('.autoplay').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		arrows: false,
-		autoplaySpeed: 2000,
-	});
-</script>
+<%= render 'components/footer' %>

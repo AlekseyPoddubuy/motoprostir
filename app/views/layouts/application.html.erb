@@ -19,12 +19,9 @@
 <body>
 	<%= render 'components/top' %>
 	<%= render 'components/header' %>
-
 	<%= yield %>
-	<% if current_page? root_path  %>
-	<% else %>
 	<%= render 'components/footer' %>
-	<% end %>
+
 	<script>
 		$(document).ready(function(){
 			setTimeout(function(){
@@ -35,13 +32,4 @@
 		});
 	</script>
 </body>
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-	<script>
-		tinymce.init({ selector:'textarea#post_description, textarea#item_description, textarea#item_body' ,
-			toolbar: 'fontsizeselect',
-			fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-			plugins: "codesample image",
-
-		});
-	</script>
 </html>

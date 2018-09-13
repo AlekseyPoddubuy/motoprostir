@@ -1,3 +1,19 @@
+<% content_for :head do %>
+<title>Аксесуари для мотоцикла, скутера, ціни - купити в магазині MOTOPROSTIR | Україна</title>
+
+<meta name="description" content="Аксесуари для мотоцикла, скутера та велосипеда в інтернет магазині - motoprostir.com.ua. Телефонуйте 8 063 637 01 39, швидка доставка, найкращі ціни" />
+<meta name="keywords" content= "мото, мотоцикл, мото аксесуари, мото екіпіровка, мото запчастини, мото аксесуары, мото туризм" />
+<meta property="og:image" content="http://206.81.30.164/assets/ready-3f10a5ec5563675f257242d83c9acd26d761a6685eabdf63de54c870a69372af.jpg" />
+
+<link rel="canonical" href="https://motoprostir.com.ua/" itemprop="url">
+
+<meta property="og:site_name" content="motoprostir.com.ua | Придбати мото аксесуари: ціна, відуги, продаж.">
+<meta property="og:url" content="https://motoprostir.com.ua/">
+<meta property="og:description" content="Прагнемо до революційних змін. Від маленького магазину аксесуарів до мотопорталу MOTOPROSTIR UKRAINE">
+<meta property="og:image" content="http://206.81.30.164/assets/logo-m-76831c3b6528fc0d5d2dc2e2584ef1037ad03517f24dea8b9aea9425d0d7b5ea.png">
+<meta property="og:type" content="website">
+<% end %>
+
 <div class="categories-block">  
   <div class="container">
     <div class="row">
@@ -6,7 +22,7 @@
           <h1>Choose your destiny:</h1>
         </div>
       </div>
-      <% @categories.each do |category| %>
+      <% Category.roots.each do |category| %>
       <div class="col-lg-6">
         <div class="category-view">
           <%= link_to (image_tag category.avatar.url), category %>
@@ -17,48 +33,3 @@
     </div>
   </div>
 </div>
-
-
-<!--
-<% if admin_signed_in? %>
-
-<p id="notice"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Metatitle</th>
-      <th>Metdescription</th>
-      <th>Metakeywords</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-    <tr>
-      <td><%= category.title %></td>
-      <td><%= image_tag category.avatar.url %></td>
-      <td><%= category.body %></td>
-      <td><%= category.metatitle %></td>
-      <td><%= category.metdescription %></td>
-      <td><%= category.metakeywords %></td>
-      <td><%= category.slug %></td>
-      <td><%= link_to 'Show', category %></td>
-      <td><%= link_to 'Edit', edit_category_path(category) %></td>
-      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
-<% end %>
--->

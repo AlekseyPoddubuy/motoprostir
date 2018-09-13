@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724130353) do
+ActiveRecord::Schema.define(version: 20180909121750) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180724130353) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 

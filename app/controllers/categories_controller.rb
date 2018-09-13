@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @categories = Category.all
-    @items = Item.where(category_id: [@category])
+    @items = Item.where(category_id: [@category.subtree_ids])
     @search = Search.new
   end
 
@@ -76,6 +76,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:title, :body, :metatitle, :metdescription, :metakeywords, :slug, :avatar)
+      params.require(:category).permit(:title, :body, :metatitle, :metdescription, :metakeywords, :slug, :avatar, :parent_id)
     end
   end

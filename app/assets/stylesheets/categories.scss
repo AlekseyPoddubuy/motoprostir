@@ -3,7 +3,7 @@
 }
 .left-sidebar {
 	p {
-		margin: 20px 0 0 0;
+		margin: 0;
 		padding: 10px 0 10px 0;
 		background-color: #2a5a5a;
 		text-transform: uppercase;
@@ -36,5 +36,47 @@
 .category-view {
 	p {
 		margin: 7px 0 7px 24px;
+	}
+}
+
+
+
+#sub {
+	margin-left: 10px;
+}
+#parent {
+	background-color: red;
+}
+
+
+
+#submenu > ul, ol {
+	margin-right: 20px;
+	li {
+		font-size: 11px;
+		margin: 4px 0;
+		margin-bottom:-5px !important;
+	}
+	ul, ol {
+		font-size: 11px;
+		margin: 0;
+		padding-left: 16px;
+		margin-bottom:-5px !important;
+		li {
+			margin: 4px 0;
+		}
+	}
+}
+.breadcrums-category {
+	text-transform: uppercase;
+	margin: 20px 0 0 0;
+	font-size: 14px;
+}
+.trigger-category {
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+	text-align: center;
+	h1 {
+		font-size: 27px;
 	}
 }
