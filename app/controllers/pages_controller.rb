@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 		@categories = Category.all
 		@carts = Cart.all
 		@items = Item.all
-		@posts = Post.order(created_at: :desc).last(1)
+		@posts = Post.order(created_at: :desc).last(3)
 	end
 
 	def cooperation
@@ -20,5 +20,9 @@ class PagesController < ApplicationController
 	end
 
 	def regards
+	end
+
+	def categorylist
+		@categories = Category.all
 	end
 end

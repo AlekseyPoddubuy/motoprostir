@@ -16,12 +16,13 @@
  *= require jquery-ui
  *= require font-awesome
  *= require bootstrap/dist/css/bootstrap
+
  */
 
  @import "bootstrap/dist/css/bootstrap";
  @import "jquery-ui";
  @import "font-awesome";
-
+ @import 'slick';
 
  @import "header";
  @import "top";
@@ -35,71 +36,212 @@
  @import "regards";
  @import "categories";
 
-body {
-	background-image: image-url('mod.jpg');
-	font-family: 'Play', sans-serif !important ;
+ body {
+ 	background-image: image-url('mod.jpg');
+ 	font-family: 'Play', sans-serif !important ;
+ }
+
+ img {
+ 	width: 100%;
+ }
+ ul {
+ 	padding-left: 0;
+ 	margin-bottom: 0 !important;
+ }
+ ul li {
+ 	list-style-type: none;
+ }
+ a {
+ 	color: #000000;
+ 	text-decoration: none;
+ }
+ .table-dark td, th {
+ 	padding: 5px 5px 5px 18px !important;
+ 	a {
+ 		color: gold;
+ 	}
+ }
+ .trigger-center {
+ 	text-align: center;
+ 	margin: 25px 0 20px 0;
+ 	h1 {
+ 		text-transform: uppercase;
+ 		font-size: 27px;
+ 	}
+ }
+
+ #lightgallery {
+ 	display: inline-block;
+ 	img {
+ 		width: 100px;
+ 		height: 65px;
+ 	}
+ }
+ #notice_wrapper {
+ 	background-color: rgba(13, 105, 134, 0.73);
+ 	text-align: center;
+ 	width: 100%;
+ 	padding: 7px;
+ 	color: #ffffff;
+ }
+
+
+ .lupa {
+ 	background : image-url("search.png");
+ 	border : none;
+ 	background-repeat: no-repeat;
+ 	height: 23px;
+ 	width: 23px;
+ 	padding-bottom: 10px;
+ 	cursor: pointer;
+ }
+ #lupa {
+ 	height:18px;
+ 	width:18px;
+ 	border: none;
+ 	cursor: pointer;
+ 	color:white;
+ 	position:relative;
+ 	padding: 0;
+ 	background-color: transparent;
+ }
+ .center {
+ 	margin: 30px;
+ 	text-align: center;
+ }
+ .review-index {
+ 	margin-top: 25px;
+ }
+ .hidden {
+ 	display: none;
+ }
+
+ .drop-menu {
+ 	color: #fff; 
+ 	float: right; 
+ 	font-size: 30px; 
+ 	margin-top: 8px;
+ 	background: none;
+ 	border: none;
+ 	cursor: pointer;
+ }
+
+
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	
 }
-img {
-	width: 100%;
-}
-ul {
-	padding-left: 0;
-	margin-bottom: 0 !important;
-}
-ul li {
-	list-style-type: none;
-}
-a {
-	color: #000000;
-}
-.table-dark td, th {
-	padding: 5px 5px 5px 18px !important;
-	a {
-		color: gold;
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	.menu {
+		display: none;
 	}
-}
-.trigger-center {
-	text-align: center;
-	margin: 25px 0 20px 0;
-	h1 {
-		text-transform: uppercase;
-		font-size: 27px;
+	.top, .need-info {
+		text-align: center;
 	}
 }
 
-#lightgallery {
-	display: inline-block;
-	img {
-		width: 100px;
-		height: 65px;
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	#footer {
+		margin: -65px 0 !important;
+		padding-bottom: 15px;
+		height: auto !important;
+		text-align: center;
+		p {
+			margin: 0;
+		}
+	}	
+	.left-sidebar {
+		margin-bottom: 20px !important;
+	}
+
+	.menu {
+		background: #383c40;
+		width: 100%;
+		padding: 14px 0;
+		margin-top: 57px;
+	}
+	.menu ul {
+		margin-top: 0;
+	}
+	.menu ul li {
+		display: block;
+		text-align: center;
+	}
+	.soc {
+		margin-bottom: 20px;
 	}
 }
-#notice_wrapper {
-	background-color: rgba(13, 105, 134, 0.73);
-	text-align: center;
-	width: 100%;
-	padding: 7px;
-	color: #ffffff;
-}
 
 
-#lupa {
-    height:18px;
-    width:18px;
-    border: none;
-    cursor: pointer;
-    color:white;
-    position:relative;
-    padding: 0;
-    background-color: transparent;
+@media only screen and (max-width : 700px) {
+
 }
-.center {
-	margin: 30px;
-	text-align: center;
-}
-.review-index {
-	margin-top: 25px;
-}
-.hidden {
-	display: none;
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+	.menu {
+		background: #383c40;
+		width: 100%;
+		padding: 14px 0;
+		margin-top: 0;
+	}
+	.menu ul {
+		margin-top: 0;
+	}
+	.menu ul li {
+		display: block;
+		text-align: center;
+	}
+	.logo img {
+		width: 165px;
+	}
+	.drop-menu {
+		margin-top: -68px;
+	}
+	.hots {
+		margin-top: 0;
+	}
+	.main-trigger {
+		h2,h1 {
+			font-size: 26px;
+			position: inherit;
+			z-index: 0 ;
+		}
+		padding: 85px 0;
+	}
+	.banner1 {
+		height: auto;
+	}
+
+	.item-desc {
+		text-align: center;
+		padding: 20px 0;
+	}
+	.breadcrums {
+		text-align: center;
+		margin-bottom: 0;
+	}
+	.ready-to {
+		h1 {
+			margin-top: 60px;
+		}
+	}
+	.post-to {
+		display: none;
+	}
+	.buttons-cart {
+		display: block;
+		input, button {
+			margin-bottom: 5px;
+		}
+	}
+	.post {
+		text-align: center;
+	}
 }

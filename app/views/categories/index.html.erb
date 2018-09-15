@@ -13,16 +13,15 @@
 <meta property="og:image" content="http://206.81.30.164/assets/logo-m-76831c3b6528fc0d5d2dc2e2584ef1037ad03517f24dea8b9aea9425d0d7b5ea.png">
 <meta property="og:type" content="website">
 <% end %>
-
 <div class="categories-block">  
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="trigger-center">
-          <h1>Choose your destiny:</h1>
+          <h1>Обери свій шлях | Choose your destiny</h1>
         </div>
       </div>
-      <% Category.roots.each do |category| %>
+      <% Category.roots.order(:title).each do |category| %>
       <div class="col-lg-6">
         <div class="category-view">
           <%= link_to (image_tag category.avatar.url), category %>

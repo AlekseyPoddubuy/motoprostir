@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
 	resources :motorcycles
 	resources :brands
 	resources :parts
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
 
 	get 'index' => 'pages#index', as: :index
 	get 'soon' => 'pages#soon', as: :soon
+	get 'category-list' => 'pages#categorylist', as: :categorylist
 	get 'cooperation' => 'pages#cooperation', as: :cooperation
 	get 'about' => 'pages#about', as: :about
 	get 'regards' => 'pages#regards', as: :regards

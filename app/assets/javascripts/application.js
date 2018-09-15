@@ -17,3 +17,11 @@
 //= require jquery.slick
 //= require bootstrap/dist/js/bootstrap
 //= require_tree .
+//= require ckeditor/init
+
+
+$(document).ready(function() {
+	$(".drop-menu").click(function(){
+		$(".menu").slideToggle();
+	});
+});

@@ -17,8 +17,28 @@
 </div>
 
 <div class="field">
+  <%= form.label :metatitle %>
+  <%= form.text_field :metatitle, id: :post_metatitle %>
+</div>
+
+<div class="field">
+  <%= form.label :metakeywords %>
+  <%= form.text_field :metakeywords, id: :post_metakeywords %>
+</div>
+
+<div class="field">
+  <%= form.label :metadescription %>
+  <%= form.text_field :metadescription, id: :post_metadescription %>
+</div>
+
+<div class="field">
+  <%= form.label :body %>
+  <%= form.text_area :body, id: :post_body %>
+</div>
+
+<div class="field">
   <%= form.label :description %>
-  <%= form.text_area :description %>
+  <%= form.cktext_area :description, id: :post_description, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
 </div>
 
 <div class="field">

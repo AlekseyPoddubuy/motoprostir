@@ -40,6 +40,9 @@ gem 'jquery-ui-rails'
 gem 'impressionist'
 gem 'ancestry'
 gem 'popper_js', '~> 1.14.3'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

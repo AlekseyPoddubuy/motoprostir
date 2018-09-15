@@ -1,11 +1,29 @@
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="trigger-center">
-				<h1><%= @post.title %></h1>
+<% content_for :head do %>
+<title><%= @post.metatitle %></title>
+
+<meta name="description" content="<%= @post.metadescription %>" />
+<meta name="keywords" content= "<%= @post.metakeywords %>" />
+<meta property="og:image" content="<%= @post.avatar %>" />
+
+<link rel="canonical" href="https://motoprostir.com.ua/" itemprop="url">
+
+<meta property="og:site_name" content="motoprostir.com.ua | <%= @post.metatitle %>">
+<meta property="og:url" content="https://motoprostir.com.ua/">
+<meta property="og:description" content="Прагнемо до революційних змін. Від маленького магазину аксесуарів до мотопорталу MOTOPROSTIR | UKRAINE">
+<meta property="og:image" content="<%= @post.avatar %>">
+<meta property="og:type" content="website">
+
+<% end %>
+<div class="post">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="trigger-center">
+					<h1><%= @post.title %></h1>
+				</div>
+				<%= @post.description.html_safe %>
+				<i class="fa fa-eye" aria-hidden="true"></i> <%= "#{@post.impressionist_count} перегляди" %>
 			</div>
-			<%= @post.description.html_safe %>
-			<i class="fa fa-eye" aria-hidden="true"></i> <%= "#{@post.impressionist_count} перегляди" %>
 		</div>
 	</div>
 </div>

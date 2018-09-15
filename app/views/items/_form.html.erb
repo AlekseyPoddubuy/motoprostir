@@ -49,24 +49,43 @@
         </div>
       </div>
     </div>
+    <div class="col-md-6"> 
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">SKU:</label>
+        <div class="col-sm-9">
+          <%= form.text_field :size, id: :item_size, class: "form-control", placeholder: "Разноробочий", required: true %>
+        </div>
+      </div>
+    </div>
     <div class="col-md-6">
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Страна роботы:</label>
         <div class="col-sm-9">
+          <%= form.file_field :avatar %>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Актуальность:</label>
+        <label class="col-sm-3 col-form-label">Количество:</label>
         <div class="col-sm-9">
+        <%= form.number_field :quantity, id: :item_quantity, class: "form-control", placeholder: "Разноробочий", required: true %>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Количество:</label>
+        <div class="col-sm-9">
+        <%= form.number_field :price, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Актуальность:</label>
+        <label class="col-sm-3 col-form-label">desc:</label>
         <div class="col-sm-9">
+        <%= form.text_area :description, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
       </div>
     </div>

@@ -9,13 +9,14 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @search = Search.new
+    @items = Item.all
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
     @categories = Category.all
-    @items = Item.where(category_id: [@category.subtree_ids])
+    @items = Item.where(category_id: [@category])
     @search = Search.new
   end
 

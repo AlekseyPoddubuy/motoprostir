@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909121750) do
+ActiveRecord::Schema.define(version: 20180914101313) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -71,6 +71,19 @@ ActiveRecord::Schema.define(version: 20180909121750) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -129,6 +142,7 @@ ActiveRecord::Schema.define(version: 20180909121750) do
     t.string "company"
     t.text "body"
     t.string "sku"
+    t.string "size"
     t.index ["slug"], name: "index_items_on_slug", unique: true
   end
 
@@ -240,6 +254,10 @@ ActiveRecord::Schema.define(version: 20180909121750) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.datetime "datetime"
+    t.string "metatitle"
+    t.string "metakeywords"
+    t.string "metadescription"
+    t.text "body"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 

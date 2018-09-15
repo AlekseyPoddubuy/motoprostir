@@ -15,6 +15,8 @@ header {
 }
 .menu {
 	text-align: right;
+		z-index: 9999;
+		position: relative;
 	#search_keywords {
 		border-top: #fff;
 		border-right: #fff;
@@ -22,6 +24,7 @@ header {
 		border-bottom:1px solid rgba(255,255,255,0.2);
 		background-color: transparent;
 		color: #fff;
+		width: 175px;
 	}
 	a {
 		font-size: 13px;
@@ -33,7 +36,7 @@ header {
 		}
 	}
 	ul {
-		margin: 15px 0 15px 0;
+		margin: 17px 0 15px 0;
 	}
 	li {
 		margin: 0 0 0 10px;
@@ -42,6 +45,8 @@ header {
 	.cart {
 		color: #fff;
 		cursor: pointer;
+		font-size: 15px;
+		text-transform: lowercase;
 	}
 }
 .banner {
@@ -50,6 +55,15 @@ header {
 	background-size: cover;
 	height: 100vh;
 	background-position: center;
+}
+.banner1 {
+	background-image: image-url('uzun-yol2.jpg'); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*
+	height: 100vh;
+	*/
+	height: 600px;
 }
 .banner2 {
 	background-image: image-url('relaunch.jpg'); 

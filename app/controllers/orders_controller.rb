@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
  before_action :set_order, only: [:show, :edit, :update, :destroy]
  before_action :authenticate_admin!, except: [:new, :create]
 
-layout 'admins'
+layout 'admins', except: [:new]
   # GET /orders
   # GET /orders.json
   def index
