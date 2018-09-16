@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-	before_action :authenticate_admin!
 	before_action :subscribers, :big_scope
 
 	protect_from_forgery with: :exception
