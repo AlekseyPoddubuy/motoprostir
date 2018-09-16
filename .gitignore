@@ -24,7 +24,6 @@
 /public/packs
 /public/packs-test
 /node_modules
-environments/production.rb
 config/database.yml
 config/secrets.yml
 yarn-debug.log*
