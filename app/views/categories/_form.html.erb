@@ -21,8 +21,8 @@
   <%= form.file_field :avatar %>
 </div>
 
-<%# form.label :parent_id %>
-<%# form.collection_select :parent_id, Category.order(:title), :id, :title, include_blank: true %>
+<%= form.label :parent_id %>
+<%= form.collection_select :parent_id, Category.order(:title), :id, :title, include_blank: true %>
 
 
 <div class="field">
