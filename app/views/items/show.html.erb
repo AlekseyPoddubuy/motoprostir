@@ -51,7 +51,7 @@
         <p class="item-show-title"><%= truncate(@item.title, length: 55) %></p>
         <p class="item-sku">SKU: <%= @item.sku %></p>
         <p class="item-review">
-         <% link_to 'Читати відгуки', '#review-leave' %> (<%= @item.reviews.where(status: 1).count %>) | <%= link_to 'Залишити відгук',  '#review-leave' %> 
+         <!-- <% link_to 'Читати відгуки', '#review-leave' %> (<%= @item.reviews.where(status: 1).count %>) | <%= link_to 'Залишити відгук',  '#review-leave' %> -->
        </p>
        <% if @item.quantity == 0 %>
        <p>Під замовлення (10-14 днів)</p>
