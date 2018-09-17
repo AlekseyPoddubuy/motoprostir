@@ -24,6 +24,8 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.photos.build 
+    5.times { @item.photos.build }
+    
   end
 
   # GET /items/1/edit

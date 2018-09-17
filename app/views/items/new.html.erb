@@ -1,4 +1,14 @@
-<div class="trigger-center">
-	<h1>Новий товар</h1>
+<div class="main-panel">
+	<div class="content-wrapper">
+		<div class="row">
+			<div class="col-12 grid-margin">
+				<div class="card">
+					<div class="card-body">
+					<h2>Новий товар</h2>
+						<%= render 'form', item: @item %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<%= render 'form', item: @item %>
