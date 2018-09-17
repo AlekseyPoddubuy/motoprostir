@@ -24,7 +24,7 @@
       <% Category.roots.order(:title).each do |category| %>
       <div class="col-lg-6">
         <div class="category-view">
-          <%= link_to (image_tag category.avatar.url), category %>
+          <%= link_to (image_tag category.avatar.url(:medium)), category %>
           <p><%= link_to category.title,category %></p>
         </div>
       </div>
