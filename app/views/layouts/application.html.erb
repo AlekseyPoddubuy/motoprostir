@@ -4,7 +4,7 @@
 	<%= yield :head %>
 	<%= csrf_meta_tags %>
 
-	<%= stylesheet_link_tag    'application', media: 'none', onload: if(media!='all')media='all' %>
+	<%= stylesheet_link_tag    'application', media: 'none' %>
 	<%= javascript_include_tag 'application', async: true %>
 	<%= favicon_link_tag 'favicon.png' %>
 
