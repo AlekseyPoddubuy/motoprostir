@@ -5,8 +5,6 @@
 <meta name="keywords" content= "We are motoprostir!" />
 <meta property="og:image" content="#" />
 
-<link rel="canonical" href="https://motoprostir.com.ua/" itemprop="url">
-
 <meta property="og:site_name" content="motoprostir.com.ua | Придбати мото аксесуари: ціна, відуги, продаж.">
 <meta property="og:url" content="https://motoprostir.com.ua/">
 <meta property="og:description" content="Прагнемо до революційних змін. Від маленького магазину аксесуарів до мотопорталу MOTOPROSTIR UKRAINE">
@@ -34,7 +32,7 @@
 			<% @items.order(created_at: :asc).last(6).each do |item| %>
 			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
 				<div class="item-info">
-					<%= link_to (image_tag item.avatar.url(:medium)), item, title: item.title %>
+					<%= link_to (image_tag item.avatar.url(:medium), alt: item.title), item, title: item.title %>
 					<% if item.publish == 1 %>
 					<span class="hot-main">Новинка</span>
 					<% elsif item.publish == 2 %>
