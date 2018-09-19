@@ -29,7 +29,7 @@
 <div class="hots">
 	<div class="container-fluid">
 		<div class="row">
-			<% @items.order(created_at: :asc).last(6).each do |item| %>
+			<% @items.where(onmain: true).order(created_at: :asc).last(6).each do |item| %>
 			<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
 				<div class="item-info">
 					<%= link_to (image_tag item.avatar.url(:medium), alt: item.title, title: item.title), item, title: item.title %>
