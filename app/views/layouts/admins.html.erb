@@ -7,15 +7,7 @@
 	<%= javascript_include_tag 'application' %>
 	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>   
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-	<script>
-		tinymce.init({ selector:'textarea#post_description, textarea#item_description, textarea#item_body' ,
-			toolbar: 'fontsizeselect',
-			fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-			plugins: "codesample image",
 
-		});
-	</script>
 </head>
 
 <body>
@@ -261,7 +253,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to (categories_path), class: "nav-link" do %>
+          <%= link_to (categorylist_path), class: "nav-link" do %>
           <i class="menu-icon mdi mdi-account-multiple"></i>
           <span class="menu-title">Категорії</span>
           <% end %>

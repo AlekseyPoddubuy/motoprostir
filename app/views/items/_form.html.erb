@@ -76,7 +76,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-      <label class="col-sm-3 col-form-label">Тип акції:</label>
+        <label class="col-sm-3 col-form-label">Тип акції:</label>
         <div class="col-sm-9">
           <%= form.number_field :publish, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
@@ -86,7 +86,6 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Опис:</label>
         <div class="col-sm-9">
-          <%= form.text_area :description, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
       </div>
     </div>
@@ -94,7 +93,7 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Опис:</label>
         <div class="col-sm-9">
-        <%= form.select :onmain, options_for_select([["Не добавлять", false],["Польская", true]], selected: @item.onmain), {}, {  class: 'form-control'}  %>
+          <%= form.select :onmain, options_for_select([["Не добавлять", false],["Додати на головну", true]], selected: @item.onmain), {}, {  class: 'form-control'}  %>
         </div>
       </div>
     </div>
@@ -109,16 +108,25 @@
     </div>
   </div>
   <p class="card-description">
-    Описание вакансии
+   Характеристики товару
   </p>
   <div class="row">
     <div class="col-md-12">
+      <%= form.cktext_area :body, id: :post_body, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
     </div>
   </div>
   <p class="card-description">
-   <p>Информация для франчайзи:</p>
+  <p>Опис товару</p>
  </p>
+
  <div class="row">
+  <div class="col-md-12">
+    <%= form.cktext_area :description, id: :post_description, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
+  </div>
+</div>
+
+
+<div class="row">
   <div class="col-md-12">
 
     <%= form.fields_for :photos do |h| %>
