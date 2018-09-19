@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>Motoprostir</title>
-
-	<%= stylesheet_link_tag    'admins' %>
-	<%= javascript_include_tag 'application' %>
-	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>   
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'admins' %>
+  <%= javascript_include_tag 'application' %>
+  <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>   
 
 </head>
 
@@ -242,7 +242,7 @@
           <%= link_to (orders_path), class: "nav-link" do %>
           <i class="menu-icon mdi mdi-elevation-rise"></i>
           <span class="menu-title">Замовлення 
-          <span class="badge badge-danger"><%= @orders.where(status: "process").count%></span>
+            <span class="badge badge-danger"><%= @orders.where(status: "process").count%></span>
           </span>
           <% end %>
         </li>
