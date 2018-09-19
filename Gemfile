@@ -73,6 +73,7 @@ group :production do
   gem 'pg'
   gem 'aws-sdk', '< 3.0'
   gem 'rmagick'
+  gem 'redis'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

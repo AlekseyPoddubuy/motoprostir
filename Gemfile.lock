@@ -182,6 +182,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.2)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -269,6 +270,7 @@ DEPENDENCIES
   popper_js (~> 1.14.3)
   puma (~> 3.7)
   rails (~> 5.1.5)
+  redis
   rmagick
   sass-rails (~> 5.0)
   selenium-webdriver
@@ -285,4 +287,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.3
+   1.16.4
