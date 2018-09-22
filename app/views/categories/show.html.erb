@@ -47,9 +47,7 @@
           </ul>
         </div>
       </div>
-
       <div class="col-lg-9 col-md-8">
-
         <div class="row">
           <% @category.children.order(:title).each do |category| %>
           <div class="col-lg-4">
@@ -60,7 +58,6 @@
           </div>
           <% end %> 
         </div>
-
         <div class="row">
           <% @items.each do |item| %>
           <div class="col-lg-4">
@@ -74,82 +71,19 @@
               <span class="sale">Топ</span>
               <% end %>
               <p class="item-title"><%= link_to truncate(item.title, length: 50), item, title: item.title %></p>
-              <p class="item-quantity">Наявність: <%= item.quantity %></p>
+              <% if item.quantity == 0 %>
+              <p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
+              <% elsif item.quantity < 3 %>
+              <p class="item-quantity-one">Закінчується</p>
+              <% elsif item.quantity >= 3 %>
+              <p class="item-quantity-two">В наявності</p>
+              <% end %>
               <p class="item-price">Ціна: <%= item.price %> грн</p>
-            <!--
-            <p class="item-title"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i></p>
-          -->
-          <%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning', title: 'Додати до кошика'%>
-
+              <%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning', title: 'Додати до кошика'%>
+            </div>
+          </div>
+          <% end %>
         </div>
       </div>
-      <% end %>
-
-
-  <style>
-    .item-info {
-      display:inline-block;   
-      position:relative;
-      margin-top: 20px;
-
-    }
-    .hot {
-      display:inline-block;
-      position:absolute;
-      top: -15px;   
-      right: 59px;
-
-      /* Оформление текста */
-      color:#FFF;
-      font-family:Arial, Helvetica, sans-serif;
-      font-size:15px;
-      text-transform: uppercase; 
-
-      /* Фон */
-      background-color: green;
-      padding:5px 30px;
-    }
-
-    .sale {
-     display:inline-block;
-     position:absolute;
-     top: -15px;   
-     right: 59px;
-     width: 132px;
-
-     /* Оформление текста */
-     color:#FFF;
-     font-family:Arial, Helvetica, sans-serif;
-     font-size:15px;
-     text-transform: uppercase; 
-
-     /* Фон */
-     background-color: gold;
-     padding:5px 30px;
-   }
-
-   .discount {
-     display:inline-block;
-     position:absolute;
-     top: -15px;   
-     right: 59px;
-     width: 132px;
-
-     /* Оформление текста */
-     color:#FFF;
-     font-family:Arial, Helvetica, sans-serif;
-     font-size:15px;
-     text-transform: uppercase; 
-
-     /* Фон */
-     background-color: red;
-     padding:5px 30px;
-   }
- </style>
-
-
-</div>
-
-</div>
-</div>
-</div>
+    </div>
+  </div>

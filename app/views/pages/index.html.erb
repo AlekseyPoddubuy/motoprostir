@@ -41,7 +41,6 @@
 					<span class="sale-main">Топ</span>
 					<% end %>
 					<p class="item-title"><%= link_to truncate(item.title, length: 34), item, title: item.title %></p>
-
 					<% if item.quantity == 0 %>
 					<p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
 					<% elsif item.quantity < 3 %>
@@ -51,7 +50,6 @@
 					<% end %>
 					<p class="item-price">Ціна: <%= item.price %> грн</p>
 					<%= link_to "Переглянути", item, class: "btn btn-warning"%>
-					<%# button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning' %>
 				</div>
 			</div>
 			<% end %>
@@ -77,8 +75,7 @@
 			<%= render 'components/social' %>
 		</div>
 		<div class="col-lg-6 col-xs-12">
-			<div class="autoplay">
-				
+			<div class="autoplay">				
 				<% @posts.each do |post| %>
 				<div class="row">
 					<div class="col-lg-12">

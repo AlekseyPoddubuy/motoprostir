@@ -1,47 +1,93 @@
-<p id="notice"><%= notice %></p>
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <h3>
+                  Замовлення номер <%= @order.id %>
+                </h3>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" id="card-title">ПІБ:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value"><%= @order.name %></label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" id="card-title">Телефон:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value"><%= @order.phone %></label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" id="card-title">Адреса:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value"><%= @order.adress %></label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" id="card-title">E-mail:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value">
+                    <% if @order.email == nil || "" %>
+                    Не вказано
+                    <% else%>
+                    <%= @order.email %>
+                    <% end %>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                <label class="col-sm-3 col-form-label" id="card-title">Оплата:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value"><%= @order.pay_type %></label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" id="card-title">До сплати:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value"><strong><%= @order.total_price %></strong></label>                  
+                </div>
+              </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @order.name %>
-</p>
+            </div>
+            <div class="row">
 
-<p>
-  <strong>phone:</strong>
-  <%= @order.phone %>
-</p>
+              <% @order.line_products.each do |product| %>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" id="card-title">Link на товар:</label>
+                  <label class="col-sm-8 col-form-label" id="card-value"><%= link_to product.item.title, product.item %></label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label" id="card-title">Кількість:</label>
+                  <label class="col-sm-6 col-form-label" id="card-value"><%= product.quantity %></label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group row">
+                  <label class="col-sm-6 col-form-label" id="card-title">Ціна | штука:</label>
+                  <label class="col-sm-6 col-form-label" id="card-value"><%= product.item.price %></label>
+                </div>
+              </div>
 
-<p>
-  <strong>Adress:</strong>
-  <%= @order.adress %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
-
-<p>
-  <strong>Pay type:</strong>
-  <%= @order.pay_type %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
-
-
-<% @order.line_products.each do |product| %>
-<p>
-  <%= link_to product.item.title, product.item %>
-</p>
-<p>
-  <%= product.quantity %>x
-</p>
-<p>
-  <%= product.item.price %>
-</p>
-
-<strong>
-</strong>
-</tr>
-<% end %>
-  <%= @order.total_price %>
+              <% end %>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <%= link_to 'Редагувати', edit_order_path(@order), class: 'btn btn-warning' %><%= link_to 'Повернутися', orders_path, class: 'btn btn-info' %>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

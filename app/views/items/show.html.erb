@@ -47,7 +47,6 @@
     </div>
     <div class="col-lg-6">
       <div class="item-desc">
-
         <p class="item-show-title"><%= truncate(@item.title, length: 55) %></p>
         <p class="item-sku">SKU: <%= @item.sku %></p>
         <p class="item-review">
@@ -60,27 +59,21 @@
        <% elsif @item.quantity >= 3 %>
        <p class="item-quantity-two">В наявності</p>
        <% end %>
-
        <% if @item.quantity > 0 %>
        <p class="item-price">Ціна: <span><%= number_to_currency(@item.price) %></span></p>
        <div class="buttons-cart">
          <%= button_to 'Додати до кошика', line_products_path(item_id: @item), class: 'btn btn-warning' %> 
-
          <button type="button" class="one-click-button" data-toggle="modal" data-target="#exampleModal">
           Придбати в один клік
         </button>
       </div>
       <p>Заповніть форму для швидкого оформлення і наш менеджер вам перетелефонує.</p>
-
-
       <% else %>
       <button type="button" class="one-click-button" data-toggle="modal" data-target="#reserved">
         Замовити товар
       </button>
       <p>Заповніть форму для уточнення наявності товару і наш менеджер вам перетелефонує.</p>
-
       <% end %>
-
       <div class="item-description">
          <% if @item.body.nil? %>
          Чекайте на детальну інформацію найближчим часом
@@ -90,7 +83,6 @@
      </div>
    </div>
  </div>
-
  <div class="col-lg-12">
   <div class="item-description">
    <%= @item.description.html_safe %>
@@ -98,7 +90,6 @@
 </div>
 </div>
 </div>
-
 <% if admin_signed_in?  %>
 <%= render 'photos/form' %>
 <br>
@@ -115,7 +106,6 @@
   </div>
 </div>
 <% end %>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -141,9 +131,6 @@
     </div>
   </div>
 </div>
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="reserved" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

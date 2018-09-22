@@ -1,10 +1,21 @@
-// Place all the styles related to the Orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 #order_pay_type {
 	width: 100%;
 	padding: 7px;
 	background-color: #fff;
 	border-radius: 4px;
+}
+#card-value {
+	background: #f5f5f5;
+}
+#card-title {
+	background: #e0e0e0;
+}
+#adding_info {
+	background-color: #f5f5f5;
+	font-size: 14px;
+	padding: 14px 29px;
+	border-radius: 4px;
+}
+#card-edit {
+	color: #fff;
 }

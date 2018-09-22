@@ -34,6 +34,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'friendly_id', '~> 5.1.0'
 gem 'mail_form'
 gem 'devise'
+gem 'material_design_icons'
 gem 'simple_form'
 gem "jquery-slick-rails"
 gem 'jquery-ui-rails'

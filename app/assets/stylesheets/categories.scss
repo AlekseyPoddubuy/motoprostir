@@ -90,3 +90,62 @@
 		color: #fff;
 	}
 }
+
+.item-info {
+	display:inline-block;   
+	position:relative;
+	margin-top: 20px;
+
+}
+.hot {
+	display:inline-block;
+	position:absolute;
+	top: -15px;   
+	right: 59px;
+
+          /* Оформление текста */
+          color:#FFF;
+          font-family:Arial, Helvetica, sans-serif;
+          font-size:15px;
+          text-transform: uppercase; 
+
+          /* Фон */
+          background-color: green;
+          padding:5px 30px;
+      }
+
+      .sale {
+      	display:inline-block;
+      	position:absolute;
+      	top: -15px;   
+      	right: 59px;
+      	width: 132px;
+
+         /* Оформление текста */
+         color:#FFF;
+         font-family:Arial, Helvetica, sans-serif;
+         font-size:15px;
+         text-transform: uppercase; 
+
+         /* Фон */
+         background-color: gold;
+         padding:5px 30px;
+     }
+
+     .discount {
+     	display:inline-block;
+     	position:absolute;
+     	top: -15px;   
+     	right: 59px;
+     	width: 132px;
+
+         /* Оформление текста */
+         color:#FFF;
+         font-family:Arial, Helvetica, sans-serif;
+         font-size:15px;
+         text-transform: uppercase; 
+
+         /* Фон */
+         background-color: red;
+         padding:5px 30px;
+     }

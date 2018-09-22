@@ -240,7 +240,7 @@
 
         <li class="nav-item">
           <%= link_to (orders_path), class: "nav-link" do %>
-          <i class="menu-icon mdi mdi-elevation-rise"></i>
+          <i class="menu-icon mdi mdi-chart-arc"></i>
           <span class="menu-title">Замовлення 
             <% if @orders.where(status: "process").count > 0 %>
             <span class="badge badge-danger"><%= @orders.where(status: "process").count%></span>
@@ -522,7 +522,7 @@
     <footer class="footer">
       <div class="container-fluid clearfix">
         <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-          <a href="https://esw.com.ua/" target="_blank">Euro Study & Work</a>. Все права защищены.</span>
+          <a href="https://esw.com.ua/" target="_blank">MOTOPROSTIR | UKRAINE</a>. Все права защищены.</span>
           <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
             <i class="mdi mdi-heart text-danger"></i>
           </span>
