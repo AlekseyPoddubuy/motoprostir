@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Кількість:</label>
+        <label class="col-sm-3 col-form-label"><a href="#" title="Під замовлення = 0, < 3 Закінчується, >= 3 В наявності">Кількість:</a></label>
         <div class="col-sm-9">
           <%= form.number_field :quantity, id: :item_quantity, class: "form-control", placeholder: "Разноробочий", required: true %>
         </div>
@@ -69,7 +69,7 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Тип акції:</label>
         <div class="col-sm-9">
-          <%= form.select :publish, options_for_select([["Новинка", 1],["Акція", 2],["Топ", 3]], selected: @item.onmain), {}, {  class: 'form-control'}  %>
+          <%= form.select :publish, options_for_select([["Звичайний товар", 0],["Новинка", 1],["Акція", 2],["Топ", 3]], selected: @item.publish), {}, {  class: 'form-control'}  %>
         </div>
       </div>
     </div>
@@ -110,9 +110,7 @@
       </div>
     </div>
   </div>
-
 </div>
-
 <div class="row">
   <div class="col-md-12">
     <%= form.cktext_area :body, id: :post_body, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
@@ -121,13 +119,11 @@
 <p class="card-description">
   <p>Опис товару</p>
 </p>
-
 <div class="row">
   <div class="col-md-12">
     <%= form.cktext_area :description, id: :post_description, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md-12">
     <br>

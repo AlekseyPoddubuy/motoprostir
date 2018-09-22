@@ -242,7 +242,9 @@
           <%= link_to (orders_path), class: "nav-link" do %>
           <i class="menu-icon mdi mdi-elevation-rise"></i>
           <span class="menu-title">Замовлення 
+            <% if @orders.where(status: "process").count > 0 %>
             <span class="badge badge-danger"><%= @orders.where(status: "process").count%></span>
+            <% end %>      
           </span>
           <% end %>
         </li>
