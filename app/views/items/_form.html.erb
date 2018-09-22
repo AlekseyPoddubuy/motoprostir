@@ -11,17 +11,9 @@
 </div>
 <% end %>
 
-
-
-
-
-
-
-
-
 <form class="form-sample">
   <p class="card-description">
-    Первичная информация:
+    Інформація про товар:
   </p>
   <div class="row">
     <div class="col-md-6">
@@ -37,7 +29,6 @@
         <label class="col-sm-3 col-form-label">Категорія:</label>
         <div class="col-sm-9">
           <%= form.collection_select :category_id, Category.where(@category_id), :id, :title, class: "form-control" %>
-
         </div>
       </div>
     </div>
@@ -78,66 +69,74 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Тип акції:</label>
         <div class="col-sm-9">
-          <%= form.number_field :publish, class: "form-control", placeholder: "Разноробочий", required: true %>
+          <%= form.select :publish, options_for_select([["Новинка", 1],["Акція", 2],["Топ", 3]], selected: @item.onmain), {}, {  class: 'form-control'}  %>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Опис:</label>
+        <label class="col-sm-3 col-form-label">Головна:</label>
         <div class="col-sm-9">
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Опис:</label>
-        <div class="col-sm-9">
-          <%= form.select :onmain, options_for_select([["Не добавлять", false],["Додати на головну", true]], selected: @item.onmain), {}, {  class: 'form-control'}  %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Дата создания:</label>
-        <div class="col-sm-9">
-          <div class="date-picker">
-          </div>
+          <%= form.select :onmain, options_for_select([["Не додавати", false],["Додати на головну", true]], selected: @item.onmain), {}, {  class: 'form-control'}  %>
         </div>
       </div>
     </div>
   </div>
   <p class="card-description">
-   Характеристики товару
-  </p>
-  <div class="row">
-    <div class="col-md-12">
-      <%= form.cktext_area :body, id: :post_body, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
-    </div>
-  </div>
-  <p class="card-description">
-  <p>Опис товару</p>
+   SEO оптимізація:
  </p>
-
  <div class="row">
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Meта-тайтл:</label>
+      <div class="col-sm-9">
+        <%= form.text_field :metatitle, id: :item_metatitle, class: "form-control", placeholder: "Мета тайтл", required: true %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Meта-ключі:</label>
+      <div class="col-sm-9">
+        <%= form.text_field :metakeywords, id: :item_metakeywords, class: "form-control", placeholder: "Мета тайтл", required: true %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Meта-опис:</label>
+      <div class="col-sm-9">
+        <%= form.text_field :metadescription, id: :item_metadescription, class: "form-control", placeholder: "Мета опис", required: true %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= form.cktext_area :body, id: :post_body, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
+  </div>
+</div>
+<p class="card-description">
+  <p>Опис товару</p>
+</p>
+
+<div class="row">
   <div class="col-md-12">
     <%= form.cktext_area :description, id: :post_description, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
   </div>
 </div>
 
-
 <div class="row">
   <div class="col-md-12">
-
+    <br>
     <%= form.fields_for :photos do |h| %>
     <%= h.file_field :avatar %>
     <% end %>
-
   </div>
 </div>
 <br>
 <%= form.submit class: "btn btn-success mr-2", value: "Обновить"%>
 </form>
 <% end %>
-
-
