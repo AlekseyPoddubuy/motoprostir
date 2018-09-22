@@ -82,13 +82,11 @@
       <% end %>
 
       <div class="item-description">
-       <p>
          <% if @item.body.nil? %>
          Чекайте на детальну інформацію найближчим часом
          <% else %>
          <%= @item.body.html_safe %>
          <% end %>
-       </p>
      </div>
    </div>
  </div>
