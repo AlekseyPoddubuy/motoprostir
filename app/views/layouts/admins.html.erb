@@ -16,7 +16,7 @@
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
 
-        <%= link_to (image_tag "logo-m.png"), root_path, class: "navbar-brand brand-logo", target: :blank %>
+        <%= link_to (image_tag "some.jpg"), root_path, class: "navbar-brand brand-logo", target: :blank %>
         <a class="navbar-brand brand-logo-mini" href="../../index.html">
           <%= image_tag "logo-m.png" %>
         </a>
@@ -170,8 +170,8 @@
         </li>
         <li class="nav-item dropdown d-none d-xl-inline-block">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-            <span class="profile-text">Привет, sss!</span>
-            <%= image_tag "logo-m.png", class: 'img-xs rounded-circle' %>
+            <span class="profile-text">Здраствуй товарищ!</span>
+            <%= image_tag "some.jpg", class: 'img-xs rounded-circle' %>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <a class="dropdown-item p-0">
@@ -206,10 +206,10 @@
           <div class="nav-link">
             <div class="user-wrapper">
               <div class="profile-image">
-                <%# image_tag "face1.jpg" %>
+                <%= image_tag "face1.jpg" %>
               </div>
               <div class="text-wrapper">
-                <p class="profile-name">sss</p>
+                <p class="profile-name">Здраствуй товарищ!</p>
                 <div>
                   <small class="designation text-muted">Admin</small>
                   <span class="status-indicator online"></span>
@@ -239,8 +239,8 @@
           <%= link_to (orders_path), class: "nav-link" do %>
           <i class="menu-icon mdi mdi-chart-arc"></i>
           <span class="menu-title">Замовлення 
-            <% if @orders.where(status: "process").count > 0 %>
-            <span class="badge badge-danger"><%= @orders.where(status: "process").count%></span>
+            <% if @orders.where(status: nil || "process").count > 0 %>
+            <span class="badge badge-danger"><%= @orders.where(status: nil || "process").count%></span>
             <% end %>      
           </span>
           <% end %>
