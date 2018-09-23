@@ -6,9 +6,9 @@ class Fastorder < MailForm::Base
 
 	def headers 
 		{
-			:subject => "Лайк и подписка)",
-			:to => "it@euroukrgroup.com",
-			:from => %("#{name}" <it@euroukrgroup.com>)
+			:subject => "Швидке замовлення",
+			:to => "kymotocycle@gmail.com",
+			:from => %("#{name}" <kymotocycle@gmail.com>)
 		}
 	end
 end

@@ -1,8 +1,8 @@
 class OrderMailer < ApplicationMailer
-	default from: 'it@euroukrgroup.com'
+	default from: 'kymotocycle@gmail.com'
 
 	def order_notification(order)
 		@order = order
-		mail(to: 'it@euroukrgroup.com', subject: 'New Order Comment')
+		mail(to: 'kymotocycle@gmail.com', subject: 'Нове замовлення на сайті MOTOPROSTIR')
 	end
 end

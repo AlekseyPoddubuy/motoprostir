@@ -8,8 +8,8 @@ class Cooperation < MailForm::Base
 	def headers 
 		{
 			:subject => "Лайк и подписка)",
-			:to => "it@euroukrgroup.com",
-			:from => %("#{name}" <it@euroukrgroup.com>)
+			:to => "kymotocycle@gmail.com",
+			:from => %("#{name}" <kymotocycle@gmail.com>)
 		}
 	end
 end
