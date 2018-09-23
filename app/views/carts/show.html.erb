@@ -27,7 +27,13 @@
 					<span class="sale">Топ</span>
 					<% end %>
 					<p class="item-title"><%= link_to truncate(item.title, length: 40), item, title: item.title %></p>
-					<p class="item-quantity">Наявність: <%= item.quantity %></p>
+					<% if item.quantity == 0 %>
+					<p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
+					<% elsif item.quantity < 3 %>
+					<p class="item-quantity-one">Закінчується</p>
+					<% elsif item.quantity >= 3 %>
+					<p class="item-quantity-two">В наявності</p>
+					<% end %>
 					<p class="item-price">Ціна: <%= item.price %> грн</p>
 					<%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning' %>
 				</div>

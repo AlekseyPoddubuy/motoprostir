@@ -36,7 +36,7 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">SKU:</label>
         <div class="col-sm-9">
-          <%= form.text_field :sku, id: :item_sku, class: "form-control", placeholder: "Разноробочий", required: true %>
+          <%= form.text_field :sku, id: :item_sku, class: "form-control", placeholder: "Ідентифікатор", required: true %>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label"><a href="#" title="Під замовлення = 0, < 3 Закінчується, >= 3 В наявності">Кількість:</a></label>
         <div class="col-sm-9">
-          <%= form.number_field :quantity, id: :item_quantity, class: "form-control", placeholder: "Разноробочий", required: true %>
+          <%= form.number_field :quantity, id: :item_quantity, class: "form-control", placeholder: "1,2,3,4", required: true %>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Ціна:</label>
         <div class="col-sm-9">
-          <%= form.number_field :price, class: "form-control", placeholder: "Разноробочий", required: true %>
+          <%= form.number_field :price, class: "form-control", placeholder: "Ціна цифрами", required: true %>
         </div>
       </div>
     </div>
