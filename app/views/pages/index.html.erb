@@ -48,7 +48,7 @@
 					<% elsif item.quantity >= 3 %>
 					<p class="item-quantity-two">В наявності</p>
 					<% end %>
-					<p class="item-price">Ціна: <%= item.price %> грн</p>
+					<p class="item-price">Ціна: <%= number_to_currency(item.price) %></p>
 					<%= link_to "Переглянути", item, class: "btn btn-warning"%>
 				</div>
 			</div>

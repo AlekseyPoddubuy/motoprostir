@@ -11,27 +11,17 @@
                 <thead>
                   <tr>
                     <th>
-                      Назва категорії
-                    </th>
-                    <th>
-                      Родитель
-                    </th>
-                    <th>
-                      Slug
-                    </th>
-                    <th>
+                      Назва статті
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% @categories.each do |category| %>
+                  <% @posts.each do |post| %>
                   <tr>
-                    <td><%= category.title %></td>
-                    <td><%= category.root.title %></td>
-                    <td><%= category.slug %></td>
-                    <td><%= link_to 'Показати', category %></td>
-                    <td><%= link_to 'Редагувати', edit_category_path(category) %></td>
-                    <td><%= link_to 'Видалити', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= post.title %></td>
+                    <td><%= link_to 'Показати', post %></td>
+                    <td><%= link_to 'Редагувати', edit_post_path(post) %></td>
+                    <td><%= link_to 'Видалити', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                   <% end %>
                 </tbody>

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 #	resources :motorcycles
 #	resources :brands
 #	resources :parts
-#	resources :sections
 #	resources :bikeposts
 #	resources :options
 #	resources :partsearches
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
 	devise_for :admins
 	resources :searches
 	resources :posts
+	resources :sections
 	resources :cooperations, only: [:new, :create]	
 	resources :fastorders, only: [:new, :create]	
 	resources :orders
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 	root to: 'pages#index'
 
 	get 'admin' => 'pages#admin', as: :admin
-
+	get 'post-list' => 'pages#postlist', as: :postlist
 	get 'index' => 'pages#index', as: :index
 	get 'soon' => 'pages#soon', as: :soon
 	get 'category-list' => 'pages#categorylist', as: :categorylist

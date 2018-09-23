@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!
-
+  layout 'admins', except: [:show]
   # GET /sections
   # GET /sections.json
   def index
@@ -74,4 +74,4 @@ class SectionsController < ApplicationController
     def section_params
       params.require(:section).permit(:title, :slug)
     end
-end
+  end

@@ -25,7 +25,6 @@
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
           <li class="nav-item">
             <%# link_to (dashboard_path), class: 'nav-link' do %>
-            Документация
           <!--
               <span class="badge badge-primary ml-1">Новинки</span>
             -->
@@ -34,13 +33,11 @@
           <li class="nav-item active">
             <%# link_to (dashboard_path), class: 'nav-link' do %>
             <i class="mdi mdi-elevation-rise"></i>
-            Статистика
             <%# end %>
           </li>
           <li class="nav-item">
             <%# link_to (goods_path), class: 'nav-link' do %>
             <i class="mdi mdi-bookmark-plus-outline"></i>
-            База знаний для франчайзи
             <%# end %>
           </li>
         </ul>
@@ -222,14 +219,14 @@
 
             <%= link_to (new_item_path) do %>
             <button class="btn btn-success btn-block">
-              Добавить товар
+              Додати товар
               <i class="mdi mdi-plus"></i>
             </button>
             <% end %>
             <br>
             <%= link_to (new_post_path) do %>
             <button class="btn btn-warning btn-block">
-              Добавить новость
+              Додати новину
               <i class="mdi mdi-plus"></i>
             </button>
             <% end %>
@@ -264,19 +261,19 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <i class="menu-icon mdi mdi-backup-restore"></i>
-            <span class="menu-title">Управление SRM</span>
+            <span class="menu-title">Налаштування блогу</span>
             <i class="menu-arrow"></i>
           </a>
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <%= link_to ('#'), class: "nav-link" do %>
-                <span class="menu-title"> Страны для вакансий</span>
+                <%= link_to (postlist_path), class: "nav-link" do %>
+                <span class="menu-title"> Список новин</span>
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to ('#'), class: "nav-link" do %>
-                <span class="menu-title"> Новости</span>
+                <%= link_to (sections_path), class: "nav-link" do %>
+                <span class="menu-title"> Категорії</span>
                 <% end %>
               </li>
             </ul>

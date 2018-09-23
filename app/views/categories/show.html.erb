@@ -34,7 +34,7 @@
       <div class="left-sidebar">
         <p>Категорії товарів:</p>
         <ul>
-          <% Category.roots.each do |category| %>
+          <% Category.roots.order(title: :asc).each do |category| %>
           <% if current_page? (category_path(category)) %>
           <li class="active-c">
             <% else %>

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	include CurrentCart
 	before_action :set_cart
 	before_action :authenticate_admin!, only: [:categorylist]
-	layout 'admins', only: [:categorylist]
+	layout 'admins', only: [:categorylist, :postlist]
 
 	def index
 		@categories = Category.all
@@ -26,5 +26,8 @@ class PagesController < ApplicationController
 
 	def categorylist
 		@categories = Category.all
+	end
+	def postlist
+		@posts = Post.all
 	end
 end

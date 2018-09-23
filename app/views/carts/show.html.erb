@@ -1,8 +1,6 @@
 <% content_for :head do %>
 <title>Ваш кошик на MOTOPROSTIR | Україна</title>
 <% end %>
-
-
 <% if @cart.line_products.count == 0 %>
 <div class="false-cart">
 	<div class="container">
@@ -85,7 +83,6 @@
 					</div>
 				</div>
 			</div>
-
 			<% end %>
 			<div class="col-lg-6">
 				<div class="go-shop">
@@ -104,34 +101,8 @@
 					</p>
 				</div>
 			</div>
-
-<!--
-				<table>
-					<% @cart.line_products.each do |line_product| %>
-					<tr id="cart-item">
-						<td id="cart-img"><%= image_tag line_product.item.avatar.url %></td>
-						<td><%= line_product.quantity %>&times;</td>
-						<td><%= link_to line_product.item.title, line_product.item %></td>
-						<td><%= button_to 'del', line_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-						<td class="item_price"><%= number_to_currency(line_product.total_price) %></td>
-						<td>
-							<%= link_to "+", line_product_add_path(:id => line_product), method: :post %><%= line_product.quantity %><%= link_to "-", line_product_reduce_path(:id => line_product), method: :post %>
-							<%= link_to "Remove item", line_product_path(line_product), method: :delete %>
-						</td>
-					</tr>
-					<% end %>
-					<tr class="total_line">
-						<td colspan="2">Total</td>
-						<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
-					</tr>
-				</table>
-			-->
-
 		</div>
 	</div>
 </div>
 </div>
 <% end %>
-
-<%# button_to 'Спорожнити кошик', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
-
