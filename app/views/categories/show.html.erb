@@ -78,7 +78,7 @@
               <% elsif item.quantity >= 3 %>
               <p class="item-quantity-two">В наявності</p>
               <% end %>
-              <p class="item-price">Ціна: <%= item.price %> грн</p>
+              <p class="item-price">Ціна: <%= number_to_currency(item.price) %></p>
               <%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning', title: 'Додати до кошика'%>
             </div>
           </div>
