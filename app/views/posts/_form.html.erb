@@ -11,61 +11,90 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :title %>
-  <%= form.text_field :title, id: :post_name %>
-</div>
-
-<div class="field">
-  <%= form.label :metatitle %>
-  <%= form.text_field :metatitle, id: :post_metatitle %>
-</div>
-
-<div class="field">
-  <%= form.label :metakeywords %>
-  <%= form.text_field :metakeywords, id: :post_metakeywords %>
-</div>
-
-<div class="field">
-  <%= form.label :metadescription %>
-  <%= form.text_field :metadescription, id: :post_metadescription %>
-</div>
-
-<div class="field">
-  <%= form.label :body %>
-  <%= form.text_area :body, id: :post_body %>
-</div>
-
-<div class="field">
-  <%= form.label :description %>
-  <%= form.cktext_area :description, id: :post_description, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
-</div>
-
-<div class="field">
-  <%= form.datetime_select :datetime %>
-</div>
-
-<div class="field">
-  <%= form.file_field :avatar  %>
-</div>
-
-----
-<div class="field">
-<% for section in Section.all %>
-  <div>
-    <%= check_box_tag "post[section_ids][]", section.id, @post.sections.include?(section) %>
-    <%= section.title %>
+<form class="form-sample">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Назва:</label>
+        <div class="col-sm-9">
+          <%= form.text_field :title, id: :post_title, class: "form-control", placeholder: "Назва статті", required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Категорії:</label>
+        <div class="col-sm-9">
+          <% for section in Section.all %>
+          <div>
+            <%= check_box_tag "post[section_ids][]", section.id, @post.sections.include?(section) %>
+            <%= section.title %>
+          </div>
+          <% end %>
+          <%# collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Дата подачі:</label>
+        <div class="col-sm-9">
+          <%= form.date_select :datetime %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Аватар:</label>
+        <div class="col-sm-9">
+          <%= form.file_field :avatar  %>
+        </div>
+      </div>
+    </div>
   </div>
-  <% end %>
+  <p class="card-description">
+   SEO оптимізація:
+ </p>
+ <div class="row">
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Meта-тайтл:</label>
+      <div class="col-sm-9">
+        <%= form.text_field :metatitle, id: :item_metatitle, class: "form-control", placeholder: "Мета тайтл", required: true %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Meта-ключі:</label>
+      <div class="col-sm-9">
+        <%= form.text_field :metakeywords, id: :item_metakeywords, class: "form-control", placeholder: "Мета тайтл", required: true %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Meта-опис:</label>
+      <div class="col-sm-9">
+        <%= form.text_field :metadescription, id: :item_metadescription, class: "form-control", placeholder: "Мета опис", required: true %>
+      </div>
+    </div>
+  </div>
 </div>
-
-#    <%# collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
-
-
-<div class="actions">
-  <%= form.submit %>
+<div class="row">
+  <div class="col-md-12">
+    <%= form.cktext_area :body, id: :post_body, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
+  </div>
 </div>
+<p class="card-description">
+  <p>Опис товару</p>
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <%= form.cktext_area :description, id: :post_description, :class => 'anyclas', :ckeditor => {:language => 'uk', :uiColor => '#AADC6E', :toolbar => 'mini'} %>
+  </div>
+</div>
+<br>
+<%= form.submit class: "btn btn-success mr-2", value: "Обновить"%>
+</form>
 <% end %>
-
-
-

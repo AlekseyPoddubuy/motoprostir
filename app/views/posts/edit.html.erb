@@ -1,6 +1,14 @@
-<h1>Editing Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class="main-panel">
+	<div class="content-wrapper">
+		<div class="row">
+			<div class="col-12 grid-margin">
+				<div class="card">
+					<div class="card-body">
+						<h2>Редагування посту</h2>
+						<%= render 'form', post: @post %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
