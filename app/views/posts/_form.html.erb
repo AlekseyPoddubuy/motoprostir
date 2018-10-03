@@ -25,12 +25,12 @@
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Категорії:</label>
         <div class="col-sm-9">
-          <% for section in Section.all %>
+          <%# for section in Section.all %>
           <div>
-            <%= check_box_tag "post[section_ids][]", section.id, @post.sections.include?(section) %>
-            <%= section.title %>
+            <%# check_box_tag "post[section_ids][]", section.id, @post.sections.include?(section) %>
+            <%# section.title %>
           </div>
-          <% end %>
+          <%# end %>
           <%# collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
         </div>
       </div>
