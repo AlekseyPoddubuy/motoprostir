@@ -1,7 +1,7 @@
 .categories-block {
 	padding-bottom: 25px;
 }
-.left-sidebar {
+.sidebar {
 	p {
 		margin: 0;
 		padding: 10px 0 10px 0;
@@ -20,19 +20,24 @@
 		}
 	}
 	li {
-		padding: 6px 5px 6px 25px;
+		background-color: #f1f1f1;
 		&:hover {
 			background-color: gold;
-			color: #ffffff;
 		}
 	}
-}
-.active-c {
-	background-color: #222222;
-	a {
-		color: #ffffff;
+
+	.back-ul {
+		background-color: red;
+	}
+	.nav-item {
+		padding: 0;
+
+	}
+	.active {
+		background-color: #dee2e6;
 	}
 }
+
 .category-view {
 	p {
 		margin: 7px 0 7px 24px;

@@ -1,10 +1,9 @@
-	<% categories.each do |category, children| %>
-	<% if current_page? (category_path(category)) || @category.root %>
-	<li class="active-c">
-		<% else %>
-		<li class="234">
-			<% end %>
-			<i class="fa fa-link" aria-hidden="true"></i> <%= link_to category.title, category %>
-		</li>
-		<%# render "components/submenu_categories", categories: children if children.present? %>
-		<% end %>	
+<% categories.each do |category, children| %>
+<li class="nav-item">
+	<%= link_to (category), class: "nav-link" do %>
+	<i class="fa fa-minus" aria-hidden="true"></i>
+	<%= category.title %>
+	<% end %>
+</li>
+<% end %>	
+<%# render "components/submenu_categories", categories: children if children.present? %>

@@ -1,2 +1,15 @@
 <h1>Pages#about</h1>
 <p>Find me in app/views/pages/about.html.erb</p>
+
+        <ul>
+          <% Category.roots.order(title: :asc).each do |category| %>
+          <% if current_page? (category_path(category)) %>
+          <li class="active-c">
+            <% else %>
+            <li style="background-color: #f1f1f1">
+              <% end %>
+              <%= link_to category.title, category %>
+              <%= render "components/submenu_categories", categories: category.root.descendants.arrange %>
+            </li>
+            <% end %>
+          </ul>
