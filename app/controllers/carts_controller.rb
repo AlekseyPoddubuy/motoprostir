@@ -66,6 +66,15 @@ class CartsController < ApplicationController
     end
   end
 
+ def destroy_all
+    @Carts = Cart.all
+    @Carts.each do |a|    
+        a.destroy      
+    end
+    redirect_to carts_path, notice: "Delted"
+  end
+
+
   private
   
   def invalid_cart

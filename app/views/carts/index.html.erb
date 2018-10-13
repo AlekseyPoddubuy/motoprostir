@@ -1,6 +1,10 @@
 
 <h1>Carts</h1>
 
+<%= form_tag ({ :controller => 'carts', :action => 'destroy_all' }) do%>
+ <%= submit_tag 'destroy all'%>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -9,6 +13,7 @@
   </thead>
 
   <tbody>
+
     <% @carts.each do |cart| %>
       <tr>
         <td><%= link_to 'Show', cart %></td>

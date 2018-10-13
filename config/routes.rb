@@ -46,5 +46,9 @@ Rails.application.routes.draw do
 	delete 'line_products/:id' => "line_products#destroy"
 	post 'line_products' => "line_products#create"
 
+
+	post "carts/destroy_all" 
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
