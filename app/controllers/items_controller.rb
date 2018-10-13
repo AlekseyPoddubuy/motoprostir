@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @categories = Category.all
-    @items = Item.all
+    @items = Item.all.order(title: :asc)
   end
 
   # GET /items/1
