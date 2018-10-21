@@ -46,98 +46,53 @@
             <% else %>
             <%= link_to category.title, category, class: 'nav-link' %>
             <% end %>
-
             <div class="collapse" id="ui-basic<%= category.id%>">
               <ul class="nav flex-column sub-menu">
                 <%= render "components/submenu_categories", categories: category.root.descendants.arrange %>
               </ul>
             </div>
           </li>
-
           <% end %>
-
-
         </ul>
-
-
-
-
-
-<!--
-        reserv
-        <ul>
-
-          <% Category.roots.order(title: :asc).each do |category| %>
-
-
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic<%= category.id%>" aria-expanded="false" aria-controls="ui-basic">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
-              <span class="menu-title">
-                <% if category.has_children? %>
-                <%= category.title %>
-                <% else %>
-                <%= link_to category.title, category %>
-                <% end %>
-              </span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic<%= category.id%>">
-              <ul class="nav flex-column sub-menu">
-                <%= render "components/submenu_categories", categories: category.root.descendants.arrange %>
-              </ul>
-            </div>
-          </li>
-
-          <% end %>
-
-          
-        </ul>
-
-      -->
-
-
-
+      </div>
     </div>
-  </div>
-  <div class="col-lg-9 col-md-8">
-    <div class="row">
-      <% @category.children.order(:title).each do |category| %>
-      <div class="col-lg-4">
-        <%= link_to (category) do %>
-        <%= image_tag category.avatar.url %>
-        <p id="category-link"><%= category.title %></p>
+    <div class="col-lg-9 col-md-8">
+      <div class="row">
+        <% @category.children.order(:title).each do |category| %>
+        <div class="col-lg-4">
+          <%= link_to (category) do %>
+          <%= image_tag category.avatar.url %>
+          <p id="category-link"><%= category.title %></p>
+          <% end %>
+        </div>
+        <% end %> 
+      </div>
+      <div class="row">
+        <% @items.each do |item| %>
+        <div class="col-lg-4">
+          <div class="item-info">
+            <%= link_to (image_tag item.avatar.url), item, title: item.title %>
+            <% if item.publish == 1 %>
+            <span class="hot">Новинка</span>
+            <% elsif item.publish == 2 %>
+            <span class="discount">Акція</span>
+            <% elsif item.publish == 3 %>
+            <span class="sale">Топ</span>
+            <% end %>
+            <p class="item-title"><%= link_to truncate(item.title, length: 50), item, title: item.title %></p>
+            <% if item.quantity == 0 %>
+            <p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
+            <% elsif item.quantity < 3 %>
+            <p class="item-quantity-one">Закінчується</p>
+            <% elsif item.quantity >= 3 %>
+            <p class="item-quantity-two">В наявності</p>
+            <% end %>
+            <p class="item-price">Ціна: <%= number_to_currency(item.price) %></p>
+            <%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning', title: 'Додати до кошика'%>
+          </div>
+        </div>
         <% end %>
       </div>
-      <% end %> 
-    </div>
-    <div class="row">
-      <% @items.each do |item| %>
-      <div class="col-lg-4">
-        <div class="item-info">
-          <%= link_to (image_tag item.avatar.url), item, title: item.title %>
-          <% if item.publish == 1 %>
-          <span class="hot">Новинка</span>
-          <% elsif item.publish == 2 %>
-          <span class="discount">Акція</span>
-          <% elsif item.publish == 3 %>
-          <span class="sale">Топ</span>
-          <% end %>
-          <p class="item-title"><%= link_to truncate(item.title, length: 50), item, title: item.title %></p>
-          <% if item.quantity == 0 %>
-          <p class="item-quantity-none" title="(10-14 днів)">Під замовлення</p>
-          <% elsif item.quantity < 3 %>
-          <p class="item-quantity-one">Закінчується</p>
-          <% elsif item.quantity >= 3 %>
-          <p class="item-quantity-two">В наявності</p>
-          <% end %>
-          <p class="item-price">Ціна: <%= number_to_currency(item.price) %></p>
-          <%= button_to 'Додати до кошика', line_products_path(item_id: item), class: 'btn btn-warning', title: 'Додати до кошика'%>
-        </div>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>
-</div>
-
