@@ -21,6 +21,7 @@
         </div>
       </div>
     </div>
+    <!--
     <div class="col-md-6">
       <div class="form-group row">
         <label class="col-sm-3 col-form-label">Категорії:</label>
@@ -35,27 +36,28 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Дата подачі:</label>
-        <div class="col-sm-9">
-          <%= form.date_select :datetime %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Аватар:</label>
-        <div class="col-sm-9">
-          <%= form.file_field :avatar  %>
-        </div>
+  -->
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Дата подачі:</label>
+      <div class="col-sm-9">
+        <%= form.date_select :datetime %>
       </div>
     </div>
   </div>
-  <p class="card-description">
-   SEO оптимізація:
- </p>
- <div class="row">
+  <div class="col-md-6">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Аватар:</label>
+      <div class="col-sm-9">
+        <%= form.file_field :avatar  %>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="card-description">
+ SEO оптимізація:
+</p>
+<div class="row">
   <div class="col-md-6">
     <div class="form-group row">
       <label class="col-sm-3 col-form-label">Meта-тайтл:</label>
@@ -87,7 +89,7 @@
   </div>
 </div>
 <p class="card-description">
-  <p>Опис товару</p>
+<p>Текст статті</p>
 </p>
 <div class="row">
   <div class="col-md-12">

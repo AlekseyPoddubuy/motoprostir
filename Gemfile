@@ -39,6 +39,7 @@ gem 'simple_form'
 gem "jquery-slick-rails"
 gem 'jquery-ui-rails'
 gem 'impressionist'
+gem 'kaminari'
 gem 'ancestry'
 gem 'popper_js', '~> 1.14.3'
 gem 'ckeditor', github: 'galetahub/ckeditor'

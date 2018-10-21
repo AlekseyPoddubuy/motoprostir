@@ -7,6 +7,7 @@ class Item < ApplicationRecord
 	has_many :line_products
 	has_many :orders, :through => :line_products
 
+
 	accepts_nested_attributes_for :photos
 
 	has_attached_file :avatar, styles: { medium: "360x360>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

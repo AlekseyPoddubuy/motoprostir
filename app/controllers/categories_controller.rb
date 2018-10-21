@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @categories = Category.all
-    @items = Item.where(category_id: [@category])
+    @items = Item.where(category_id: [@category]).order(title: :asc)
     @search = Search.new
   end
 
